@@ -204,9 +204,13 @@ body {
      object-position: left top;
 }
 
+.header__content {
+  padding-top: 30px;
+}
+
 .header__logo {
-  width: 186px;
-  height: 226px;
+  width: 160px;
+  height: 125px;
 }
 .header__logo img {
   width: 100%;
@@ -268,7 +272,7 @@ body {
   text-transform: uppercase;
   font-family: TT Marxiana;
   font-size: 100px;
-  margin-bottom: 90px;
+  margin-bottom: 110px;
 }
 .header__title * {
   line-height: 110%;

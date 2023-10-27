@@ -988,7 +988,7 @@
                     selectedAnswerLetter: '',
                     answerList: [],
                     showResult: false,
-                    resultType: ''
+                    resultType: null
                 }
             },
             computed: {
@@ -1003,8 +1003,9 @@
                     this.currentQuestionIndex++;
                     this.selectedAnswerLetter = '';
                     if (this.currentQuestionIndex === this.questionsList.length) {
-                        this.showResult = true;
                         this.resultType = testResult[findMostFrequentElement(this.answerList)];
+                        this.showResult = true;
+                        console.log(findMostFrequentElement(this.answerList));
                     }
                 },
                 restartPoll() {

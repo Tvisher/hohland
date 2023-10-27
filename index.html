@@ -170,7 +170,7 @@
             <section class="poll-section">
                 <div class="container">
                     <div class="poll-app" id="poll-app">
-                        <div class="poll-app__questions" v-if="!showResult">
+                        <div class="poll-app__questions" v-if="!showResult && currentQuestion">
                             <div class="poll-section__title">Создай свой идеальный <br> завтрак с Хохланд</div>
                             <div class="poll-app__questions-content">
                                 <div class="poll-app__question">{{currentQuestion.question}}</div>
@@ -342,14 +342,6 @@
     <script src="./js/parallax.min.js"></script>
     <script src="./js/main.js"></script>
     <script>
-        function findMostFrequentElement(arr) {
-            const elementCount = {};
-            let maxCount = 0;
-            let mostFrequentElements = [];
-            arr.forEach(element => (elementCount[element] = (elementCount[element] || 0) + 1) > maxCount ? maxCount = elementCount[element] : null);
-            arr.forEach(element => elementCount[element] === maxCount ? mostFrequentElements.push(element) : null);
-            return mostFrequentElements[Math.floor(Math.random() * mostFrequentElements.length)];
-        }
         const questionsList = [
             {
                 question: '01. Как бы вы описали свое утро?',
@@ -579,7 +571,7 @@
             }
         ]
         const testResult = {
-            'A': {
+            "A": {
                 resTitle: 'Романтик. Вам подойдет неспешный уютный завтрак вдвоем с любимым человеком. Приготовьте ему Бриошь с творожным сыром со вкусом овощей-гриль и помидорами. И подайте в постель вместе с фруктами и ароматным кофе.',
                 ingredients: [
                     {
@@ -988,31 +980,43 @@
                     selectedAnswerLetter: '',
                     answerList: [],
                     showResult: false,
-                    resultType: null
+                    // resultType: null
                 }
             },
             computed: {
                 currentQuestion() {
                     return this.questionsList[this.currentQuestionIndex] ? this.questionsList[this.currentQuestionIndex] : null;
+                },
+                resultType() {
+                    return this.testResult[this.findMostFrequentElement(this.answerList)];
                 }
             },
             methods: {
                 setAnswer() {
                     if (this.selectedAnswerLetter == '') return;
                     this.answerList.push(this.selectedAnswerLetter);
-                    this.currentQuestionIndex++;
                     this.selectedAnswerLetter = '';
+                    this.currentQuestionIndex++;
                     if (this.currentQuestionIndex === this.questionsList.length) {
-                        this.resultType = testResult[findMostFrequentElement(this.answerList)];
+                        // this.resultType = this.testResult[this.findMostFrequentElement(this.answerList)];
+                        // this.$nextTick(() => {
                         this.showResult = true;
-                        console.log(findMostFrequentElement(this.answerList));
+                        // });
                     }
                 },
                 restartPoll() {
                     this.currentQuestionIndex = 0;
                     this.answerList = [];
                     this.showResult = false;
-                    this.resultType = '';
+                    // this.resultType = null;
+                },
+                findMostFrequentElement(arr) {
+                    const elementCount = {};
+                    let maxCount = 0;
+                    let mostFrequentElements = [];
+                    arr.forEach(element => (elementCount[element] = (elementCount[element] || 0) + 1) > maxCount ? maxCount = elementCount[element] : null);
+                    arr.forEach(element => elementCount[element] === maxCount ? mostFrequentElements.push(element) : null);
+                    return mostFrequentElements[Math.floor(Math.random() * mostFrequentElements.length)];
                 }
             }
         }

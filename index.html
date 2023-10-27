@@ -167,11 +167,11 @@
 
                 </div>
             </section>
-            <div class="poll-section">
+            <section class="poll-section">
                 <div class="container">
-                    <div class="poll-section__title">Создай свой идеальный <br> завтрак с Хохланд</div>
                     <div class="poll-app" id="poll-app">
                         <div class="poll-app__questions" v-if="!showResult">
+                            <div class="poll-section__title">Создай свой идеальный <br> завтрак с Хохланд</div>
                             <div class="poll-app__question">{{currentQuestion.question}}</div>
                             <div class="poll-app__answer-list">
                                 <div class="poll-app-answer" v-for="answer in currentQuestion.answerList">
@@ -185,12 +185,13 @@
                             </div>
                             <div class="poll-app-btn gradient-btn" @click="setAnswer"><span>Ответить</span></div>
                         </div>
-                        <div v-else>
-                            res
+                        <div v-else style="color:red">
+                            <div class="poll-section__title">Ваш идеальный завтрак!</div>
+                            Ваш тип: "{{resultType}}"
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
             <section class="contest">
 
                 <div class="container">
@@ -551,6 +552,57 @@
                 ]
             }
         ]
+        const testResult = {
+            'A': {
+                resTitle: 'Романтик. Вам подойдет неспешный уютный завтрак вдвоем с любимым человеком. Приготовьте ему Бриошь с творожным сыром со вкусом овощей-гриль и помидорами. И подайте в постель вместе с фруктами и ароматным кофе.',
+                ingredients: [
+                    {
+                        name: 'Бриошь',
+                        count: '4 ломтика (можно заменить на обычный хлеб для тостов)'
+                    },
+                    {
+                        name: 'Сыр творожный Hochland со вкусом «овощи-гриль»',
+                        count: '200гр.'
+                    },
+                    {
+                        name: 'Молоко',
+                        count: '200мл.'
+                    },
+                    {
+                        name: 'Яйцо',
+                        count: '1шт'
+                    },
+                    {
+                        name: 'Чеснок',
+                        count: '2 зубчика'
+                    },
+                    {
+                        name: 'Оливковое масло',
+                        count: '3 ст.л.'
+                    },
+                    {
+                        name: 'Помидор',
+                        count: '1шт. (или помидоры черри'
+                    },
+                    {
+                        name: 'Руккола',
+                        count: '70гр'
+                    },
+                    {
+                        name: 'Соль, перец',
+                        count: 'по вкусу'
+                    },
+                ],
+                cookingProcess: [
+                    "Взбейте яйцо с молоком, посолите.",
+                    "В яичную смесь добавьте бриоши или тосты.",
+                    "Обжарьте на горячей сковороде с маслом.",
+                    "Нарежьте помидор кружочками.",
+                    "В творожный сыр выдавите чеснок, перемешайте.",
+                    "На готовые бриоши нанесите творожный сыр со вкусом «овощи-гриль» с добавлением чеснока, добавьте рукколу и помидоры."
+                ]
+            }
+        }
         const pollApp = {
             data() {
                 return {
@@ -559,7 +611,7 @@
                     selectedAnswerLetter: '',
                     answerList: [],
                     showResult: false,
-
+                    resultType: ''
                 }
             },
             computed: {
@@ -575,8 +627,8 @@
                     this.selectedAnswerLetter = '';
                     if (this.currentQuestionIndex === this.questionsList.length) {
                         this.showResult = true;
+                        this.resultType = findMostFrequentElement(this.answerList);
                     }
-                    console.log(findMostFrequentElement(this.answerList));
                 }
             }
         }

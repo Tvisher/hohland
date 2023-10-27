@@ -190,7 +190,7 @@
                                 <img src="./img/poll-image.jpg" alt="">
                             </div>
                         </div>
-                        <div v-else class="test-result">
+                        <div v-if="showResult && resultType" class="test-result">
                             <div class="poll-section__title">Ваш идеальный завтрак!</div>
                             <div class="test-result__title">{{resultType.resTitle}}</div>
                             <div class="test-result__wrapper">
@@ -999,9 +999,10 @@
                     this.currentQuestionIndex++;
                     if (this.currentQuestionIndex === this.questionsList.length) {
                         // this.resultType = this.testResult[this.findMostFrequentElement(this.answerList)];
-                        // this.$nextTick(() => {
-                        this.showResult = true;
-                        // });
+                        this.$nextTick(() => {
+                            console.log();
+                            this.showResult = true;
+                        });
                     }
                 },
                 restartPoll() {

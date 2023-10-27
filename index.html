@@ -170,51 +170,58 @@
             <section class="poll-section">
                 <div class="container">
                     <div class="poll-app" id="poll-app">
-                        <div class="poll-app__questions" v-if="!showResult && currentQuestion">
-                            <div class="poll-section__title">Создай свой идеальный <br> завтрак с Хохланд</div>
-                            <div class="poll-app__questions-content">
-                                <div class="poll-app__question">{{currentQuestion.question}}</div>
-                                <div class="poll-app__answer-list">
-                                    <div class="poll-app-answer" v-for="answer in currentQuestion.answerList">
-                                        <input type="radio" class="answer__input" :name="currentQuestion.question"
-                                            :value="answer.type" v-model="selectedAnswerLetter">
-                                        <div class="answer__content">
-                                            <div class="answer__letter">{{answer.letter}}.</div>
-                                            <div class="answer__text">{{answer.text}}</div>
+                        <transition name="fade" mode="out-in">
+                            <div class="poll-app__questions" v-if="!showResult && currentQuestion">
+                                <div class="poll-section__title">Создай свой идеальный <br> завтрак с Хохланд</div>
+                                <transition name="fade" mode="out-in">
+                                    <div class="poll-app__questions-content" :key="currentQuestion.question">
+                                        <div class="poll-app__question">{{currentQuestion.question}}</div>
+                                        <div class="poll-app__answer-list">
+                                            <div class="poll-app-answer" v-for="answer in currentQuestion.answerList">
+                                                <input type="radio" class="answer__input"
+                                                    :name="currentQuestion.question" :value="answer.type"
+                                                    v-model="selectedAnswerLetter">
+                                                <div class="answer__content">
+                                                    <div class="answer__letter">{{answer.letter}}.</div>
+                                                    <div class="answer__text">{{answer.text}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="poll-app-btn gradient-btn" @click="setAnswer"><span>Ответить</span>
+                                        </div>
+                                    </div>
+                                </transition>
+                                <div class="poll-app__questions-image">
+                                    <img src="./img/poll-image.jpg" alt="">
+                                </div>
+                            </div>
+                            <div v-else class="test-result">
+                                <div class="poll-section__title">Ваш идеальный завтрак!</div>
+                                <div class="test-result__title">{{resultType.resTitle}}</div>
+                                <div class="test-result__wrapper">
+                                    <div class="test-result__block">
+                                        <div class="test-result__subtitle">Вам понадобятся:</div>
+                                        <div class="ingredient-item" v-for="ingredient in resultType.ingredients">
+                                            <span class="ingredient__name">{{ingredient.name}}</span>
+                                            —
+                                            <span class="ingredient__count">{{ingredient.count}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="test-result__block">
+                                        <div class="test-result__subtitle">Как готовить:</div>
+                                        <div class="cooking-process__item"
+                                            v-for="(cookingProcessItem,index) in resultType.cookingProcess">
+                                            <div class="cooking-process__item-num">{{index +1}}.</div>
+                                            <div class="cooking-process__item-text">{{cookingProcessItem}}</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="poll-app-btn gradient-btn" @click="setAnswer"><span>Ответить</span></div>
-                            </div>
-                            <div class="poll-app__questions-image">
-                                <img src="./img/poll-image.jpg" alt="">
-                            </div>
-                        </div>
-                        <div v-else class="test-result">
-                            <div class="poll-section__title">Ваш идеальный завтрак!</div>
-                            <div class="test-result__title">{{resultType.resTitle}}</div>
-                            <div class="test-result__wrapper">
-                                <div class="test-result__block">
-                                    <div class="test-result__subtitle">Вам понадобятся:</div>
-                                    <div class="ingredient-item" v-for="ingredient in resultType.ingredients">
-                                        <span class="ingredient__name">{{ingredient.name}}</span>
-                                        —
-                                        <span class="ingredient__count">{{ingredient.count}}</span>
-                                    </div>
-                                </div>
-                                <div class="test-result__block">
-                                    <div class="test-result__subtitle">Как готовить:</div>
-                                    <div class="cooking-process__item"
-                                        v-for="(cookingProcessItem,index) in resultType.cookingProcess">
-                                        <div class="cooking-process__item-num">{{index +1}}.</div>
-                                        <div class="cooking-process__item-text">{{cookingProcessItem}}</div>
-                                    </div>
+                                <div class="btn-wrapper">
+                                    <div class="gradient-btn" @click="restartPoll"><span>Пройти ещё раз</span></div>
                                 </div>
                             </div>
-                            <div class="btn-wrapper">
-                                <div class="gradient-btn" @click="restartPoll"><span>Пройти ещё раз</span></div>
-                            </div>
-                        </div>
+                        </transition>
+
                     </div>
                 </div>
             </section>
@@ -996,9 +1003,6 @@
                     this.currentQuestionIndex++;
                     if (this.currentQuestionIndex === this.questionsList.length) {
                         this.resultType = this.testResult[this.findMostFrequentElement(this.answerList)];
-                        // this.$nextTick(() => {
-                        //     this.showResult = true;
-                        // });
                     }
                 },
                 restartPoll() {

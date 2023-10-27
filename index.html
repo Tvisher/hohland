@@ -190,7 +190,7 @@
                                 <img src="./img/poll-image.jpg" alt="">
                             </div>
                         </div>
-                        <div v-if="showResult && resultType" class="test-result">
+                        <div v-else class="test-result">
                             <div class="poll-section__title">Ваш идеальный завтрак!</div>
                             <div class="test-result__title">{{resultType.resTitle}}</div>
                             <div class="test-result__wrapper">
@@ -980,16 +980,13 @@
                     selectedAnswerLetter: '',
                     answerList: [],
                     showResult: false,
-                    // resultType: null
+                    resultType: null
                 }
             },
             computed: {
                 currentQuestion() {
                     return this.questionsList[this.currentQuestionIndex] ? this.questionsList[this.currentQuestionIndex] : null;
                 },
-                resultType() {
-                    return this.testResult[this.findMostFrequentElement(this.answerList)];
-                }
             },
             methods: {
                 setAnswer() {
@@ -998,18 +995,17 @@
                     this.selectedAnswerLetter = '';
                     this.currentQuestionIndex++;
                     if (this.currentQuestionIndex === this.questionsList.length) {
-                        // this.resultType = this.testResult[this.findMostFrequentElement(this.answerList)];
-                        this.$nextTick(() => {
-                            console.log();
-                            this.showResult = true;
-                        });
+                        this.resultType = this.testResult[this.findMostFrequentElement(this.answerList)];
+                        // this.$nextTick(() => {
+                        //     this.showResult = true;
+                        // });
                     }
                 },
                 restartPoll() {
                     this.currentQuestionIndex = 0;
                     this.answerList = [];
                     this.showResult = false;
-                    // this.resultType = null;
+                    this.resultType = null;
                 },
                 findMostFrequentElement(arr) {
                     const elementCount = {};
@@ -1018,6 +1014,13 @@
                     arr.forEach(element => (elementCount[element] = (elementCount[element] || 0) + 1) > maxCount ? maxCount = elementCount[element] : null);
                     arr.forEach(element => elementCount[element] === maxCount ? mostFrequentElements.push(element) : null);
                     return mostFrequentElements[Math.floor(Math.random() * mostFrequentElements.length)];
+                }
+            },
+            watch: {
+                resultType(newVal, oldVal) {
+                    if (newVal != null) {
+                        this.showResult = true;
+                    }
                 }
             }
         }

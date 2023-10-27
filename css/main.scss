@@ -133,10 +133,14 @@ select:focus {
   border-radius: 51px;
   background: linear-gradient(243deg, #e42313 16.58%, #fc5e51 67.02%);
   transition: transform 0.3s ease-in-out;
+  user-select: none;
+
   span {
     position: relative;
     z-index: 2;
+    user-select: none;
   }
+
   &::before {
     position: absolute;
     left: 0;

@@ -298,13 +298,15 @@ body {
   font-weight: 400;
   line-height: normal;
   &.large {
-    color: #fff;
+    color: #e42313;
+    background: -webkit-linear-gradient(180deg, #e42313 2.25%, #fc5e51 89.96%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-family: TT Marxiana;
     font-size: 53px;
     font-style: normal;
     font-weight: 400;
     line-height: 148%;
-    // letter-spacing: 0.112px;
     text-transform: uppercase;
   }
 }
@@ -825,4 +827,95 @@ body {
     line-height: normal;
     letter-spacing: 0.151px;
   }
+}
+
+.poll-section {
+  padding: 110px 0;
+  background-color: #f8f8f8;
+  border-radius: 0px 300px 0px 300px;
+}
+
+.poll-section__title {
+  color: #1d377b;
+  font-family: TT Marxiana;
+  font-size: 62px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.151px;
+  text-transform: uppercase;
+  margin-bottom: 52px;
+}
+
+.poll-app__question {
+  color: #1d377b;
+  font-family: Circe;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 0.151px;
+  margin-bottom: 40px;
+}
+
+.answer__letter {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0.151px;
+  margin-right: 17px;
+}
+.answer__letter,
+.answer__text {
+  color: #1d377b;
+  font-family: Circe;
+  font-style: normal;
+  transition: color 0.3s ease-in-out;
+}
+
+.answer__text {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 130%;
+}
+.poll-app-answer {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  position: relative;
+  &:hover {
+    .answer__content {
+      background-color: #0bbbef;
+    }
+  }
+}
+.answer__input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  height: 100%;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+  &:checked + .answer__content {
+    background-color: #22408f;
+    border-color: #22408f;
+    .answer__text,
+    .answer__letter {
+      color: #fff;
+    }
+  }
+}
+.answer__content {
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 8px;
+  border: 1px solid #0bbbef;
+  background: #f5faff;
+  padding: 14px 22px;
+  display: flex;
+}
+.poll-app__answer-list {
+  margin-bottom: 40px;
 }

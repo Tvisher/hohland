@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="./css/main.css">
     <!-- bagfix transition zeroscript  -->
     <script> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.7/vue.global.min.js"
+        integrity="sha512-lYL7ryKlBHE7bEuM88rB0HtDexkSAn0rKsdFV9lynlE7eQCrmlFw/pyCuCpOnHdS2XVFGpFyPt+HJjg/01aGbw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -164,6 +167,30 @@
 
                 </div>
             </section>
+            <div class="poll-section">
+                <div class="container">
+                    <div class="poll-section__title">Создай свой идеальный <br> завтрак с Хохланд</div>
+                    <div class="poll-app" id="poll-app">
+                        <div class="poll-app__questions" v-if="!showResult">
+                            <div class="poll-app__question">{{currentQuestion.question}}</div>
+                            <div class="poll-app__answer-list">
+                                <div class="poll-app-answer" v-for="answer in currentQuestion.answerList">
+                                    <input type="radio" class="answer__input" :name="currentQuestion.question"
+                                        :value="answer.type" v-model="selectedAnswerLetter">
+                                    <div class="answer__content">
+                                        <div class="answer__letter">{{answer.letter}}.</div>
+                                        <div class="answer__text">{{answer.text}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="poll-app-btn gradient-btn" @click="setAnswer"><span>Ответить</span></div>
+                        </div>
+                        <div v-else>
+                            res
+                        </div>
+                    </div>
+                </div>
+            </div>
             <section class="contest">
 
                 <div class="container">
@@ -287,6 +314,276 @@
     </div>
     <script src="./js/parallax.min.js"></script>
     <script src="./js/main.js"></script>
+    <script>
+        function findMostFrequentElement(arr) {
+            const elementCount = {};
+            let maxCount = 0;
+            let mostFrequentElements = [];
+            arr.forEach(element => (elementCount[element] = (elementCount[element] || 0) + 1) > maxCount ? maxCount = elementCount[element] : null);
+            arr.forEach(element => elementCount[element] === maxCount ? mostFrequentElements.push(element) : null);
+            return mostFrequentElements[Math.floor(Math.random() * mostFrequentElements.length)];
+        }
+        const questionsList = [
+            {
+                question: '01. Как бы вы описали свое утро?',
+                answerList: [
+                    {
+                        letter: "A",
+                        text: 'Время для себя. Люблю спокойно посидеть за чашечкой кофе.',
+                        type: 'З'
+                    },
+                    {
+                        letter: "Б",
+                        text: 'Главное — активность: каждый день начинаю со спорта.',
+                        type: 'Д'
+                    },
+                    {
+                        letter: "В",
+                        text: 'Встаю по будильнику, чтобы не опоздать на работу.',
+                        type: 'И'
+                    },
+                    {
+                        letter: "Г",
+                        text: 'Ранний подъем не моё. Ложусь поздно и сплю до обеда.',
+                        type: 'Е'
+                    },
+                ]
+            },
+
+            {
+                question: '02. Ваш любимый напиток на завтрак:',
+                answerList: [
+                    {
+                        letter: "A",
+                        text: 'Крепкий черный кофе',
+                        type: 'Ж'
+                    },
+                    {
+                        letter: "Б",
+                        text: 'Капучино или латте',
+                        type: 'А'
+                    },
+                    {
+                        letter: "В",
+                        text: 'Черный или зеленый чай',
+                        type: 'Б'
+                    },
+                    {
+                        letter: "Г",
+                        text: 'Вода или сок',
+                        type: 'Д'
+                    },
+                ]
+            },
+            {
+                question: '03. Какой день недели самый любимый:',
+                answerList: [
+                    {
+                        letter: "A",
+                        text: 'Понедельник. Да, я не шучу.',
+                        type: 'Ж'
+                    },
+                    {
+                        letter: "Б",
+                        text: 'Среда, ведь это маленькая пятница',
+                        type: 'Е'
+                    },
+                    {
+                        letter: "В",
+                        text: 'Пятница — ведь впереди выходные',
+                        type: 'В'
+                    },
+                    {
+                        letter: "Г",
+                        text: 'Суббота — любимый выходной',
+                        type: 'Г'
+                    },
+                ]
+            },
+            {
+                question: '04. Что для вас завтрак?',
+                answerList: [
+                    {
+                        letter: "A",
+                        text: 'Главный прием пищи. Остальную еду — отдаю врагам.',
+                        type: 'Д'
+                    },
+                    {
+                        letter: "Б",
+                        text: 'Заставляю себя есть, чтобы зарядиться энергией на день',
+                        type: 'Г'
+                    },
+                    {
+                        letter: "В",
+                        text: 'Это приятный способ провести утро',
+                        type: 'Б'
+                    },
+                    {
+                        letter: "Г",
+                        text: 'Предпочитаю другие приемы пищи',
+                        type: 'И'
+                    },
+                ]
+            },
+            {
+                question: '05. Ваше любимое блюдо на завтрак:',
+                answerList: [
+                    {
+                        letter: "A",
+                        text: 'Сэндвич или бутерброд',
+                        type: 'Г'
+                    },
+                    {
+                        letter: "Б",
+                        text: 'Омлет или яичница',
+                        type: 'А'
+                    },
+                    {
+                        letter: "В",
+                        text: 'Каша или мюсли с молоком',
+                        type: 'Б'
+                    },
+                    {
+                        letter: "Г",
+                        text: 'Йогурт или творог',
+                        type: 'Д'
+                    },
+                ]
+            },
+            {
+                question: '06. Где вы предпочитаете завтракать?',
+                answerList: [
+                    {
+                        letter: "A",
+                        text: 'В постели или дома на диване',
+                        type: 'Е'
+                    },
+                    {
+                        letter: "Б",
+                        text: 'За столом на кухне или в столовой',
+                        type: 'И'
+                    },
+                    {
+                        letter: "В",
+                        text: 'В кафе или кофейне',
+                        type: 'В'
+                    },
+                    {
+                        letter: "Г",
+                        text: 'В офисе',
+                        type: 'Ж'
+                    },
+                ]
+            },
+            {
+                question: '07. Как у вас с кулинарными способностями?',
+                answerList: [
+                    {
+                        letter: "A",
+                        text: 'Люблю и умею готовить, изучаю новые рецепты',
+                        type: 'Е'
+                    },
+                    {
+                        letter: "Б",
+                        text: ' Я хорошо готовлю, но только под настроение',
+                        type: 'З'
+                    },
+                    {
+                        letter: "В",
+                        text: 'Лучше всего я разогреваю полуфабрикаты',
+                        type: 'И'
+                    },
+                    {
+                        letter: "Г",
+                        text: 'Зачем готовить, если можно заказать еду на дом?',
+                        type: 'Ж'
+                    },
+                ]
+            },
+            {
+                question: '08. Какой фильм вы бы сейчас посмотрели?',
+                answerList: [
+                    {
+                        letter: "A",
+                        text: 'Завтрак у Тиффани',
+                        type: 'А'
+                    },
+                    {
+                        letter: "Б",
+                        text: 'Сериал «Кухня»',
+                        type: 'В'
+                    },
+                    {
+                        letter: "В",
+                        text: 'Шоколад',
+                        type: 'З'
+                    },
+                    {
+                        letter: "Г",
+                        text: 'Ешь, молись, люби',
+                        type: 'Г'
+                    },
+                ]
+            },
+            {
+                question: '09. С кем бы вам хотелось провести идеальный завтрак?',
+                answerList: [
+                    {
+                        letter: "A",
+                        text: 'С родными и семьей',
+                        type: 'Б'
+                    },
+                    {
+                        letter: "Б",
+                        text: 'Со знаменитостью',
+                        type: 'З'
+                    },
+                    {
+                        letter: "В",
+                        text: 'С близкими друзьями',
+                        type: 'В'
+                    },
+                    {
+                        letter: "Г",
+                        text: 'С любимым человеком',
+                        type: 'А'
+                    },
+                ]
+            }
+        ]
+        const pollApp = {
+            data() {
+                return {
+                    questionsList,
+                    currentQuestionIndex: 0,
+                    selectedAnswerLetter: '',
+                    answerList: [],
+                    showResult: false,
+
+                }
+            },
+            computed: {
+                currentQuestion() {
+                    return this.questionsList[this.currentQuestionIndex] ? this.questionsList[this.currentQuestionIndex] : null;
+                }
+            },
+            methods: {
+                setAnswer() {
+                    if (this.selectedAnswerLetter == '') return;
+                    this.answerList.push(this.selectedAnswerLetter);
+                    this.currentQuestionIndex++;
+                    this.selectedAnswerLetter = '';
+                    if (this.currentQuestionIndex === this.questionsList.length) {
+                        this.showResult = true;
+                    }
+                    console.log(findMostFrequentElement(this.answerList));
+                }
+            }
+        }
+
+        const app = Vue.createApp(pollApp);
+        app.mount('#poll-app');
+    </script>
 </body>
 
 </html>

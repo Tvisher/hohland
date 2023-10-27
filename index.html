@@ -172,22 +172,48 @@
                     <div class="poll-app" id="poll-app">
                         <div class="poll-app__questions" v-if="!showResult">
                             <div class="poll-section__title">Создай свой идеальный <br> завтрак с Хохланд</div>
-                            <div class="poll-app__question">{{currentQuestion.question}}</div>
-                            <div class="poll-app__answer-list">
-                                <div class="poll-app-answer" v-for="answer in currentQuestion.answerList">
-                                    <input type="radio" class="answer__input" :name="currentQuestion.question"
-                                        :value="answer.type" v-model="selectedAnswerLetter">
-                                    <div class="answer__content">
-                                        <div class="answer__letter">{{answer.letter}}.</div>
-                                        <div class="answer__text">{{answer.text}}</div>
+                            <div class="poll-app__questions-content">
+                                <div class="poll-app__question">{{currentQuestion.question}}</div>
+                                <div class="poll-app__answer-list">
+                                    <div class="poll-app-answer" v-for="answer in currentQuestion.answerList">
+                                        <input type="radio" class="answer__input" :name="currentQuestion.question"
+                                            :value="answer.type" v-model="selectedAnswerLetter">
+                                        <div class="answer__content">
+                                            <div class="answer__letter">{{answer.letter}}.</div>
+                                            <div class="answer__text">{{answer.text}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="poll-app-btn gradient-btn" @click="setAnswer"><span>Ответить</span></div>
+                            </div>
+                            <div class="poll-app__questions-image">
+                                <img src="./img/poll-image.jpg" alt="">
+                            </div>
+                        </div>
+                        <div v-else class="test-result">
+                            <div class="poll-section__title">Ваш идеальный завтрак!</div>
+                            <div class="test-result__title">{{resultType.resTitle}}</div>
+                            <div class="test-result__wrapper">
+                                <div class="test-result__block">
+                                    <div class="test-result__subtitle">Вам понадобятся:</div>
+                                    <div class="ingredient-item" v-for="ingredient in resultType.ingredients">
+                                        <span class="ingredient__name">{{ingredient.name}}</span>
+                                        —
+                                        <span class="ingredient__count">{{ingredient.count}}</span>
+                                    </div>
+                                </div>
+                                <div class="test-result__block">
+                                    <div class="test-result__subtitle">Как готовить:</div>
+                                    <div class="cooking-process__item"
+                                        v-for="(cookingProcessItem,index) in resultType.cookingProcess">
+                                        <div class="cooking-process__item-num">{{index +1}}.</div>
+                                        <div class="cooking-process__item-text">{{cookingProcessItem}}</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="poll-app-btn gradient-btn" @click="setAnswer"><span>Ответить</span></div>
-                        </div>
-                        <div v-else style="color:red">
-                            <div class="poll-section__title">Ваш идеальный завтрак!</div>
-                            Ваш тип: "{{resultType}}"
+                            <div class="btn-wrapper">
+                                <div class="gradient-btn" @click="restartPoll"><span>Пройти ещё раз</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -562,15 +588,15 @@
                     },
                     {
                         name: 'Сыр творожный Hochland со вкусом «овощи-гриль»',
-                        count: '200гр.'
+                        count: '200 гр.'
                     },
                     {
                         name: 'Молоко',
-                        count: '200мл.'
+                        count: '200 мл.'
                     },
                     {
                         name: 'Яйцо',
-                        count: '1шт'
+                        count: '1 шт.'
                     },
                     {
                         name: 'Чеснок',
@@ -582,11 +608,11 @@
                     },
                     {
                         name: 'Помидор',
-                        count: '1шт. (или помидоры черри'
+                        count: '1 шт. (или помидоры черри'
                     },
                     {
                         name: 'Руккола',
-                        count: '70гр'
+                        count: '70 гр.'
                     },
                     {
                         name: 'Соль, перец',
@@ -607,11 +633,11 @@
                 ingredients: [
                     {
                         name: 'Мука',
-                        count: '120 гр'
+                        count: '120 гр.'
                     },
                     {
                         name: 'Молоко',
-                        count: '300 мл'
+                        count: '300 мл.'
                     },
                     {
                         name: 'Творожный сыр Hochland со вкусом маринованных огурчиков',
@@ -619,27 +645,27 @@
                     },
                     {
                         name: 'Большое яйцо',
-                        count: '1 шт'
+                        count: '1 шт.'
                     },
                     {
                         name: 'Консервированная кукуруза',
-                        count: '150 гр'
+                        count: '150 гр.'
                     },
                     {
                         name: 'Небольшая морковка',
-                        count: '1 шт'
+                        count: '1 шт.'
                     },
                     {
                         name: 'Веточка петрушки',
-                        count: '3 шт'
+                        count: '3 шт.'
                     },
                     {
                         name: 'Сливочное масло',
-                        count: '25 гр'
+                        count: '25 гр.'
                     },
                     {
                         name: 'Соль',
-                        count: '½ ч. л'
+                        count: '1/2 ч. л.'
                     },
                 ],
                 cookingProcess: [
@@ -656,43 +682,43 @@
                 ingredients: [
                     {
                         name: 'Творожный сыр Hochland с чесноком для',
-                        count: '80 г'
+                        count: '80 гр.'
                     },
                     {
                         name: 'Тортилья пшеничная',
-                        count: '1 шт'
+                        count: '1 шт.'
                     },
                     {
                         name: 'Петрушка ',
-                        count: '5 г'
+                        count: '5 гр.'
                     },
                     {
                         name: 'Томаты',
-                        count: '20 г'
+                        count: '20 гр.'
                     },
                     {
                         name: 'Репчатый лук',
-                        count: '15 г'
+                        count: '15 гр.'
                     },
                     {
                         name: 'Соль',
-                        count: '2 г'
+                        count: '2 гр.'
                     },
                     {
                         name: 'Куриная грудка',
-                        count: '40 г'
+                        count: '40 гр.'
                     },
                     {
                         name: 'Масло растительное',
-                        count: '10 мл'
+                        count: '10 мл.'
                     },
                     {
                         name: 'Кетчуп',
-                        count: '30 мл'
+                        count: '30 мл.'
                     },
                     {
                         name: 'Масло сливочное',
-                        count: '10 г'
+                        count: '10 гр.'
                     },
                 ],
                 cookingProcess: [
@@ -723,11 +749,11 @@
                     },
                     {
                         name: 'Масло ол.',
-                        count: '30 гр'
+                        count: '30 гр.'
                     },
                     {
                         name: 'Маслины',
-                        count: '30 гр'
+                        count: '30 гр.'
                     },
                     {
                         name: 'Лук зелёный',
@@ -735,7 +761,7 @@
                     },
                     {
                         name: 'Базилик',
-                        count: '20 гр'
+                        count: '20 гр.'
                     },
                     {
                         name: 'Соль, перец',
@@ -755,7 +781,7 @@
                 ingredients: [
                     {
                         name: 'Творожный сыр Hochland со вкусом маринованных огурчиков',
-                        count: '140 гр'
+                        count: '140 гр.'
                     },
                     {
                         name: 'Микс салатных листьев',
@@ -767,11 +793,11 @@
                     },
                     {
                         name: 'Огурчики',
-                        count: '2 шт'
+                        count: '2 шт.'
                     },
                     {
                         name: 'Яйца, сваренные вкрутую',
-                        count: '2 шт'
+                        count: '2 шт.'
                     },
                     {
                         name: 'Оливковое масло, лимон, хлопья чилийского перца, прованские травы, соль',
@@ -822,11 +848,11 @@
                     },
                     {
                         name: 'Слабосоленая красная рыба (лосося, горбуши, форели)',
-                        count: '150 гр'
+                        count: '150 гр.'
                     },
                     {
                         name: 'Творожный сыр «Овощи-гриль» Hochland',
-                        count: '220 гр'
+                        count: '220 гр.'
                     },
                     {
                         name: 'Ломтики огурца',
@@ -854,19 +880,19 @@
                     },
                     {
                         name: 'брокколи',
-                        count: '200 гр'
+                        count: '200 гр.'
                     },
                     {
                         name: 'Яйца',
-                        count: '4 шт'
+                        count: '4 шт.'
                     },
                     {
                         name: 'Сливки 10%',
-                        count: '40-50мл'
+                        count: '40-50 мл.'
                     },
                     {
                         name: 'Лосось слабосолёный',
-                        count: '100-150 гр'
+                        count: '100-150 гр.'
                     },
                     {
                         name: 'Салатный микс',
@@ -957,6 +983,7 @@
             data() {
                 return {
                     questionsList,
+                    testResult,
                     currentQuestionIndex: 0,
                     selectedAnswerLetter: '',
                     answerList: [],
@@ -977,8 +1004,14 @@
                     this.selectedAnswerLetter = '';
                     if (this.currentQuestionIndex === this.questionsList.length) {
                         this.showResult = true;
-                        this.resultType = findMostFrequentElement(this.answerList);
+                        this.resultType = testResult[findMostFrequentElement(this.answerList)];
                     }
+                },
+                restartPoll() {
+                    this.currentQuestionIndex = 0;
+                    this.answerList = [];
+                    this.showResult = false;
+                    this.resultType = '';
                 }
             }
         }

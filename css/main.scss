@@ -164,6 +164,9 @@ select:focus {
 .btn-wrapper {
   display: flex;
   justify-content: center;
+  &.mt20 {
+    margin-top: 20px;
+  }
 }
 
 .container {
@@ -200,10 +203,22 @@ body {
   overflow: hidden;
   background: linear-gradient(180deg, #97daff 0%, #247eae 100%);
   img {
+    opacity: 0;
     height: 100%;
     width: auto;
     object-fit: cover;
     object-position: left top;
+    transition: opacity 1.2s ease-in-out, filter 0.5s linear,
+      transform 1.2s ease-in-out;
+    transform: scale(1.3);
+    filter: blur(5px);
+  }
+  &.aos-animate {
+    img {
+      transform: scale(1);
+      filter: blur(0px);
+      opacity: 1;
+    }
   }
 }
 .header__content {
@@ -213,6 +228,7 @@ body {
 .header__logo {
   width: 160px;
   height: 125px;
+  margin-bottom: 60px;
   img {
     width: 100%;
     height: 100%;
@@ -512,7 +528,7 @@ body {
 
 .contest {
   padding-bottom: 85px;
-  padding-top: 90px;
+  padding-top: 145px;
   .contest__title {
     font-size: 82px;
     width: fit-content;
@@ -837,7 +853,7 @@ body {
 }
 
 .poll-section {
-  padding: 110px 0;
+  padding: 110px 0 150px;
   background-color: #f8f8f8;
   border-radius: 0px 300px 0px 300px;
 }
@@ -1006,21 +1022,6 @@ body {
   }
 }
 
-.poll-app__questions-image {
-  position: absolute;
-  top: 115px;
-  right: 0;
-  width: 580px;
-  height: 580px;
-  border-radius: 50%;
-  overflow: hidden;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;
@@ -1029,4 +1030,146 @@ body {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.image-title {
+  position: absolute;
+  z-index: 3;
+  top: -80px;
+  right: 10px;
+  color: #fff;
+  font-family: TT Marxiana;
+  font-size: 71px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0.131px;
+  text-transform: uppercase;
+  transform: skewY(-12deg);
+  padding: 14px 35px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #e42313 40.4%, #fc5e51 115.09%);
+  filter: drop-shadow(
+    0px 12.13449764251709px 29.46949577331543px rgba(0, 0, 0, 0.15)
+  );
+}
+
+.poll-app__questions-image {
+  position: absolute;
+  top: 115px;
+  right: 0;
+  width: 580px;
+  height: 580px;
+  .poll-app__questions-image__wrapper {
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .absolute-image {
+    position: absolute;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    &[data-image="1"] {
+      z-index: 1;
+      bottom: -25px;
+      right: -58px;
+      width: 261px;
+      height: 162px;
+    }
+
+    &[data-image="2"] {
+      z-index: 3;
+      bottom: -115px;
+      right: 87px;
+      width: 257px;
+      height: 215px;
+    }
+  }
+}
+
+.poll-section__paralax {
+  max-width: 1240px;
+  width: 100%;
+  padding: 0px 15px;
+  margin: auto;
+  position: relative;
+  .new-taste-image__paralax {
+    position: absolute !important;
+    &[data-paralax-item="1"] {
+      top: 0;
+      left: -5%;
+      transform: translateY(-120%) scale(-1, 1) !important;
+      width: 241px;
+      height: 142px;
+    }
+
+    &[data-paralax-item="2"] {
+      transform: translateY(50%) !important;
+      top: 0;
+      left: 7%;
+      width: 204px;
+      height: 194px;
+    }
+  }
+}
+
+.test-result__title-wrapper {
+  position: relative;
+  .absolute-title {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    right: 0px;
+    color: #fff;
+    font-family: TT Marxiana;
+    font-size: 71px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0.131px;
+    text-transform: uppercase;
+    transform: skewY(-12deg) translateY(-50%);
+    padding: 14px 25px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #e42313 40.4%, #fc5e51 115.09%);
+    filter: drop-shadow(
+      0px 12.13449764251709px 29.46949577331543px rgba(0, 0, 0, 0.15)
+    );
+  }
+}
+
+.footer__socials {
+  display: flex;
+  justify-content: flex-end;
+  .social-item {
+    svg {
+      width: 100%;
+      height: 100%;
+      path {
+        transition: fill 0.3s ease-in-out;
+      }
+    }
+    width: 36px;
+    height: 36px;
+    &:not(:last-child) {
+      margin-right: 23px;
+    }
+    &:hover {
+      svg path {
+        fill: #ff4916;
+      }
+    }
+  }
+}
+
+[data-aos] {
+  will-change: transform;
 }

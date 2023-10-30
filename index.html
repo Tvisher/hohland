@@ -21,19 +21,22 @@
         <header class="header">
             <div class="container">
                 <div class="header__content">
-                    <a href="javascript:void(0)" class="header__logo">
-                        <img src="./img/footer-logo.svg" alt="">
+                    <a href="javascript:void(0)" class="header__logo" data-aos="fade-in" data-aos-duration="1500">
+                        <img src="./img/logo.svg" alt="">
                     </a>
                     <div class="header__title">
-                        <div class="title-segment">Вкусные</div>
-                        <div class="red-selection title-segment"><span>новинки</span></div>
+                        <div class="title-segment" data-aos="fade-up-right">Вкусные</div>
+                        <div class="red-selection title-segment" data-aos="fade-up-right" data-aos-delay="300">
+                            <span>новинки</span>
+                        </div>
                         <!-- <div class="title-segment">от Хохланд</div> -->
                     </div>
-                    <div class="header__descr large">+Конкурс</div>
-                    <div class="header__descr">Участвуй в конкурсе и получай призы</div>
+                    <div class="header__descr large" data-aos="fade-up" data-aos-delay="400">+Конкурс</div>
+                    <div class="header__descr" data-aos="fade-up" data-aos-delay="600">Участвуй в конкурсе и получай
+                        призы</div>
                 </div>
             </div>
-            <div class="header__image">
+            <div class="header__image" data-aos>
                 <img src="./img/main-screen-image.png" alt="">
             </div>
             <div class="header-mouse-ball">
@@ -165,6 +168,15 @@
                 </div>
             </section>
             <section class="poll-section">
+                <div class="poll-section__paralax">
+                    <div class="new-taste-image__paralax" data-paralax-item="1" data-id="paralax-block">
+                        <div class="new-taste-image__paralax-wrapper" data-depth="0.02">
+                            <div class="new-taste-image__paralax-container">
+                                <img src="./img/test-greenery.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="container">
                     <div class="poll-app" id="poll-app">
                         <transition name="fade" mode="out-in">
@@ -189,11 +201,23 @@
                                     </div>
                                 </transition>
                                 <div class="poll-app__questions-image">
-                                    <img src="./img/poll-image.jpg" alt="">
+                                    <div class="poll-app__questions-image__wrapper">
+                                        <img src="./img/poll-image.jpg" alt="">
+                                    </div>
+                                    <div class="image-title">Тест</div>
+                                    <div class="absolute-image" data-image="1">
+                                        <img src="./img/test-greenery.png" alt="">
+                                    </div>
+                                    <div class="absolute-image" data-image="2">
+                                        <img src="./img/test-parsley.png" alt="">
+                                    </div>
                                 </div>
                             </div>
                             <div v-else class="test-result">
-                                <div class="poll-section__title">Ваш идеальный завтрак!</div>
+                                <div class="test-result__title-wrapper">
+                                    <div class="poll-section__title">Ваш идеальный завтрак!</div>
+                                    <div class="absolute-title">готово</div>
+                                </div>
                                 <div class="test-result__title">{{resultType.resTitle}}</div>
                                 <div class="test-result__wrapper">
                                     <div class="test-result__block">
@@ -216,13 +240,24 @@
                                 <div class="btn-wrapper">
                                     <div class="gradient-btn" @click="restartPoll"><span>Пройти ещё раз</span></div>
                                 </div>
+                                <div class="btn-wrapper mt20">
+                                    <a href="#contest" class="gradient-btn"><span>Теперь за призами</span></a>
+                                </div>
                             </div>
                         </transition>
-
+                    </div>
+                </div>
+                <div class="poll-section__paralax">
+                    <div class="new-taste-image__paralax" data-paralax-item="2" data-id="paralax-block">
+                        <div class="new-taste-image__paralax-wrapper" data-depth="-0.02">
+                            <div class="new-taste-image__paralax-container">
+                                <img src="./img/test-garlic.png" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-            <section class="contest">
+            <section class="contest" id="contest">
 
                 <div class="container">
                     <div class="contest__title__wrapper">
@@ -324,7 +359,74 @@
                     <a href="javascript:void(0)" class="footer__logo">
                         <img src="./img/footer-logo.svg" alt="">
                     </a>
-                    <div class="footer__socials"></div>
+                    <div class="footer__socials">
+                        <a href="javascript:void(0)" class="social-item">
+                            <svg width="37" height="37" viewBox="0 0 37 37" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_670_185)">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M2.90949 2.91096C0.332031 5.48842 0.332031 9.63675 0.332031 17.9335V19.4002C0.332031 27.6969 0.332031 31.8452 2.90949 34.4227C5.48695 37.0002 9.63528 37.0002 17.932 37.0002H19.3987C27.6954 37.0002 31.8437 37.0002 34.4213 34.4227C36.9987 31.8452 36.9987 27.6969 36.9987 19.4002V17.9335C36.9987 9.63675 36.9987 5.48842 34.4213 2.91096C31.8437 0.333496 27.6954 0.333496 19.3987 0.333496H17.932C9.63528 0.333496 5.48695 0.333496 2.90949 2.91096ZM6.51962 11.4864C6.71823 21.0197 11.4849 26.7489 19.8418 26.7489H20.3155V21.2947C23.3864 21.6002 25.7084 23.8461 26.6404 26.7489H30.9793C29.7877 22.41 26.6556 20.0114 24.7 19.0947C26.6556 17.9641 29.4056 15.2141 30.0625 11.4864H26.1208C25.2652 14.5113 22.7294 17.2614 20.3155 17.5211V11.4864H16.3737V22.0586C13.9293 21.4475 10.8432 18.4836 10.7057 11.4864H6.51962Z"
+                                        fill="white" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_670_185">
+                                        <rect width="36.6667" height="36.6667" fill="white"
+                                            transform="translate(0.332031 0.333496)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                        </a>
+                        <a href="javascript:void(0)" class="social-item">
+                            <svg width="37" height="36" viewBox="0 0 37 36" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_670_174)">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M31.1941 35.8161C34.112 35.8161 36.4775 33.4914 36.4775 30.6236V5.52498C36.4775 2.65733 34.112 0.33252 31.1941 0.33252H5.47087C2.55301 0.33252 0.1875 2.65724 0.1875 5.52498V30.6236C0.1875 33.4914 2.55292 35.8161 5.47087 35.8161H31.1941ZM18.3117 5.50675C14.6778 5.50675 11.7319 8.40198 11.7319 11.9733C11.7319 15.5447 14.6778 18.4402 18.3117 18.4402C21.9457 18.4402 24.8915 15.5447 24.8915 11.9733C24.8915 8.40198 21.9457 5.50675 18.3117 5.50675ZM18.3117 14.6466C16.8096 14.6466 15.5918 13.4497 15.5918 11.9734C15.5918 10.4971 16.8096 9.30028 18.3117 9.30028C19.8139 9.30028 21.0317 10.4971 21.0317 11.9734C21.0317 13.4497 19.8139 14.6466 18.3117 14.6466ZM20.6353 23.5855C23.2694 23.0581 24.8479 21.8322 24.9315 21.7664C25.7023 21.1588 25.8261 20.0522 25.2079 19.2946C24.5898 18.5371 23.464 18.4154 22.693 19.0228C22.6767 19.0358 20.9931 20.305 18.223 20.3069C15.4529 20.305 13.7337 19.0358 13.7174 19.0228C12.9465 18.4154 11.8206 18.5371 11.2025 19.2946C10.5843 20.0522 10.7082 21.1588 11.479 21.7664C11.5636 21.8331 13.2073 23.091 15.9153 23.606L12.1412 27.4823C11.4553 28.1814 11.4759 29.2945 12.1872 29.9685C12.5344 30.2975 12.9819 30.461 13.4289 30.461C13.8977 30.461 14.3659 30.281 14.717 29.9232L18.223 26.2525L22.0833 29.947C22.7827 30.6332 23.9153 30.6321 24.6134 29.945C25.3115 29.2578 25.3106 28.1445 24.6114 27.4584L20.6353 23.5855Z"
+                                        fill="white" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_670_174">
+                                        <rect width="36.6667" height="35.8519" fill="white"
+                                            transform="translate(0 0.147949)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                        </a>
+                        <a href="javascript:void(0)" class="social-item">
+                            <svg width="38" height="37" viewBox="0 0 38 37" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_670_181)">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M37.3307 18.6668C37.3307 28.7921 29.1226 37.0002 18.9974 37.0002C8.87218 37.0002 0.664062 28.7921 0.664062 18.6668C0.664062 8.54161 8.87218 0.333496 18.9974 0.333496C29.1226 0.333496 37.3307 8.54161 37.3307 18.6668ZM19.6549 13.868C17.8717 14.6097 14.3078 16.1448 8.96327 18.4733C8.0954 18.8185 7.64077 19.1561 7.59939 19.4862C7.52944 20.0442 8.22814 20.2639 9.17958 20.563C9.309 20.6037 9.44309 20.6459 9.58056 20.6906C10.5166 20.9949 11.7758 21.3508 12.4304 21.365C13.0242 21.3778 13.6869 21.133 14.4186 20.6306C19.4122 17.2598 21.9899 15.556 22.1517 15.5193C22.2659 15.4934 22.4241 15.4608 22.5313 15.5561C22.6385 15.6514 22.6279 15.8318 22.6166 15.8802C22.5474 16.1753 19.8047 18.7251 18.3854 20.0446C17.9429 20.456 17.6291 20.7477 17.5649 20.8144C17.4212 20.9636 17.2747 21.1049 17.134 21.2406C16.2643 22.0789 15.6122 22.7076 17.1701 23.7342C17.9187 24.2275 18.5178 24.6355 19.1154 25.0425C19.7681 25.487 20.4191 25.9303 21.2615 26.4825C21.4761 26.6231 21.681 26.7692 21.8806 26.9116C22.6402 27.4531 23.3226 27.9396 24.1657 27.862C24.6556 27.8169 25.1616 27.3563 25.4186 25.9824C26.026 22.7356 27.2198 15.7006 27.4957 12.8017C27.5199 12.5477 27.4895 12.2227 27.4651 12.08C27.4406 11.9373 27.3896 11.734 27.2041 11.5835C26.9845 11.4052 26.6454 11.3677 26.4937 11.3703C25.8042 11.3825 24.7462 11.7503 19.6549 13.868Z"
+                                        fill="white" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_670_181">
+                                        <rect width="36.6667" height="36.6667" fill="white"
+                                            transform="translate(0.664062 0.333496)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="social-item">
+                            <svg width="41" height="37" viewBox="0 0 41 37" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M7.56061 5.3335C3.75175 5.3335 0.664062 8.42119 0.664062 12.2301V26.0232C0.664062 29.832 3.75176 32.9197 7.56062 32.9197H33.7675C37.5764 32.9197 40.6641 29.832 40.6641 26.0231V12.23C40.6641 8.42119 37.5764 5.3335 33.7675 5.3335H7.56061ZM26.8713 19.8163L17.2161 13.6094V26.0232L26.8713 19.8163Z"
+                                    fill="#F2F2F2" />
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="social-item">
+                            <svg width="37" height="37" viewBox="0 0 37 37" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18 37C18 29.5005 18 25.7508 16.0902 23.1221C15.4734 22.2732 14.7268 21.5266 13.8779 20.9098C11.2492 19 7.49946 19 0 19C0 26.4995 0 30.2492 1.90983 32.8779C2.52663 33.7268 3.2732 34.4734 4.12215 35.0902C6.7508 37 10.5005 37 18 37ZM37 19C29.5005 19 25.7508 19 23.1221 20.9098C22.2732 21.5266 21.5266 22.2732 20.9098 23.1221C19 25.7508 19 29.5005 19 37C26.4995 37 30.2492 37 32.8779 35.0902C33.7268 34.4734 34.4734 33.7268 35.0902 32.8779C37 30.2492 37 26.4995 37 19ZM19 0C19 7.49946 19 11.2492 20.9098 13.8779C21.5266 14.7268 22.2732 15.4734 23.1221 16.0902C25.7508 18 29.5005 18 37 18C37 10.5005 37 6.7508 35.0902 4.12215C34.4734 3.2732 33.7268 2.52663 32.8779 1.90983C30.2492 0 26.4995 0 19 0ZM0 18C0 10.5005 0 6.7508 1.90983 4.12215C2.52663 3.2732 3.2732 2.52663 4.12215 1.90983C6.7508 0 10.5005 0 18 0C18 7.49946 18 11.2492 16.0902 13.8779C15.4734 14.7268 14.7268 15.4734 13.8779 16.0902C11.2492 18 7.49946 18 0 18Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </footer>
@@ -345,6 +447,7 @@
     </div>
     <script src="./js/vue.global.js"></script>
     <script src="./js/parallax.min.js"></script>
+    <script src="./js/aos.js"></script>
     <script src="./js/main.js"></script>
     <script>
         const questionsList = [

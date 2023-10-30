@@ -183,7 +183,7 @@
                             <div class="poll-app__questions" v-if="!showResult && currentQuestion">
                                 <div class="poll-section__title" data-aos="fade-right">Создай свой идеальный <br>
                                     завтрак с Хохланд</div>
-                                <div data-aos="fade-up">
+                                <div data-aos="fade-up" class="poll-app__questions-content-w">
                                     <transition name="fade" mode="out-in">
                                         <div class="poll-app__questions-content" :key="currentQuestion.question">
                                             <div class="poll-app__question">{{currentQuestion.question}}</div>

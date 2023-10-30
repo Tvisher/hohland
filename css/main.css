@@ -176,6 +176,10 @@ select:focus {
   margin: auto;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #164194;
   font-family: "Circe";
@@ -1181,4 +1185,193 @@ body {
 
 [data-aos] {
   will-change: transform;
+}
+
+@media (max-width: 1500px) {
+  .form-section__wrapper {
+    justify-content: flex-start;
+  }
+  .poll-section {
+    border-radius: 0px 200px 0px 0px;
+  }
+  .header {
+    border-radius: 0px 0px 0px 200px;
+  }
+}
+@media (max-width: 1300px) {
+  .poll-section,
+  .form-section,
+  .header {
+    border-radius: 0px;
+  }
+  .header__content {
+    padding-left: 40px;
+  }
+  .header__title {
+    font-size: 70px;
+    margin-bottom: 75px;
+  }
+  .header {
+    padding-bottom: 60px;
+  }
+  .header__image {
+    border-radius: 0px 0px 0px 213px;
+  }
+  .contest .contest__title {
+    transform: skewY(-12deg);
+  }
+}
+@media (max-width: 1250px) {
+  .contest__paralax {
+    width: 210px;
+    height: 270px;
+    right: 0;
+  }
+  .contest .contest__title {
+    font-size: 68px;
+  }
+  .contest .title-segment._small {
+    font-size: 44px;
+  }
+  .second-screen__block[data-block="1"] [data-paralax-item="1"] {
+    width: 196px;
+    height: 112px;
+    left: 13px;
+    bottom: -64px;
+  }
+  .second-screen__block[data-block="1"] [data-paralax-item="2"] {
+    width: 161px;
+    height: 194px;
+    right: 27px;
+    top: -119px;
+  }
+  .second-screen__block[data-block="2"] [data-paralax-item="1"] {
+    width: 140px;
+    height: 211px;
+    left: -27px;
+    top: -40px;
+  }
+  .second-screen__block[data-block="2"] [data-paralax-item="2"] {
+    width: 137px;
+    height: 116px;
+    right: -46px;
+    bottom: -9px;
+  }
+  .second-screen__block[data-block="2"] [data-paralax-item="3"] {
+    width: 255px;
+    height: 85px;
+    left: -1px;
+    bottom: -72px;
+  }
+  .second-screen__block[data-block="3"] [data-paralax-item="1"] {
+    width: 205px;
+    height: 120px;
+    left: -59px;
+    top: -62px;
+  }
+  .second-screen__block[data-block="3"] [data-paralax-item="2"] {
+    width: 334px;
+    height: 340px;
+    right: -70px;
+    bottom: -73px;
+  }
+  .poll-app__questions-image {
+    width: 450px;
+    height: 450px;
+  }
+  .poll-app__questions-image {
+    right: 20px;
+  }
+  .header-mouse-ball {
+    display: none;
+  }
+  .header__logo {
+    margin-bottom: 30px;
+  }
+  .second-screen {
+    padding-top: 80px;
+  }
+  .second-screen .second-screen__title {
+    margin-bottom: 100px;
+  }
+  .second-screen .second-screen__title {
+    font-size: 54px;
+  }
+  .poll-section {
+    padding: 110px 0 100px;
+  }
+}
+@media (max-width: 1100px) {
+  .second-screen__block {
+    flex-direction: column;
+    margin-bottom: 100px;
+  }
+  .new-taste-image {
+    margin: auto;
+  }
+  .block__text,
+  .block__image {
+    width: 100%;
+  }
+  [data-block="1"] .block__image {
+    order: -1;
+    margin: 40px 0;
+  }
+  [data-block="2"] .block__image {
+    margin: 40px 0;
+    margin-bottom: 100px;
+  }
+  [data-block="3"] .block__image {
+    order: -1;
+    margin: 40px 0;
+  }
+  .image-title {
+    font-size: 50px;
+    top: 60px;
+  }
+  .test-result__title-wrapper .absolute-title {
+    font-size: 50px;
+  }
+  .poll-section__title {
+    font-size: 48px;
+  }
+  .test-result__title,
+  .test-result__subtitle {
+    font-size: 32px;
+  }
+  [data-depth] {
+    transform: none !important;
+  }
+  .poll-app__questions-image {
+    display: none;
+  }
+  .poll-app__questions .poll-app__questions-content {
+    max-width: inherit;
+  }
+  .poll-app__questions-content-w {
+    width: 100%;
+  }
+  .poll-section__title br {
+    display: none;
+  }
+  .poll-section__paralax .new-taste-image__paralax[data-paralax-item="2"] {
+    width: 140px;
+    height: 130px;
+  }
+  .poll-section__paralax .new-taste-image__paralax[data-paralax-item="1"] {
+    width: 168px;
+    height: 100px;
+    left: inherit;
+    right: 0;
+    transform: translateY(-150%) !important;
+  }
+  .poll-section {
+    padding: 100px 0;
+  }
+  .test-result__wrapper {
+    gap: 20px;
+  }
+  .test-result__block {
+    flex: 0 0 calc(50% - 10px);
+  }
 }/*# sourceMappingURL=main.css.map */

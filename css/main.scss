@@ -1058,13 +1058,21 @@ body {
   line-height: 100%;
   letter-spacing: 0.131px;
   text-transform: uppercase;
-  transform: skewY(-12deg);
+  transform: scale(0) skewY(-12deg);
   padding: 14px 35px;
   border-radius: 20px;
+  transition: transform 0.8s ease-in-out 0.5s;
   background: linear-gradient(180deg, #e42313 40.4%, #fc5e51 115.09%);
   filter: drop-shadow(
     0px 12.13449764251709px 29.46949577331543px rgba(0, 0, 0, 0.15)
   );
+}
+.poll-app__questions-image {
+  &.aos-animate {
+    .image-title {
+      transform: scale(1) skewY(-12deg);
+    }
+  }
 }
 
 .poll-app__questions-image {
@@ -1224,6 +1232,9 @@ body {
 // }
 
 @media (max-width: 1440px) {
+  .container {
+    padding: 0px 25px;
+  }
   .poll-section,
   .form-section,
   .header {
@@ -1395,7 +1406,7 @@ body {
   }
   .poll-section__paralax .new-taste-image__paralax[data-paralax-item="1"] {
     top: 5px;
-    left: -4%;
+    left: -0%;
     transform: translateY(-120%) scale(-1, 1) !important;
     width: 195px;
     height: 103px;
@@ -1418,6 +1429,7 @@ body {
   }
   .test-result__subtitle {
     font-size: 28px;
+    margin-bottom: 10px;
   }
   .test-result__wrapper {
     gap: 20px;
@@ -1470,6 +1482,15 @@ body {
   .footer {
     padding: 40px 0;
   }
+  .contest__about {
+    margin-bottom: 60px;
+  }
+  .contest__bann {
+    padding-top: 30px;
+  }
+  .contest__bann .bann__title {
+    font-size: 38px;
+  }
 }
 
 @media (max-width: 1160px) {
@@ -1479,6 +1500,9 @@ body {
 }
 
 @media (max-width: 1100px) {
+  .second-screen .second-screen__title {
+    margin-bottom: 100px;
+  }
   .second-screen__block {
     flex-direction: column;
     margin-bottom: 100px;

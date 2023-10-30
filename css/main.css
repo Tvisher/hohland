@@ -539,7 +539,8 @@ body {
   font-family: TT Marxiana;
 }
 .contest .title-segment {
-  display: inline;
+  display: inline-block;
+  line-height: 100%;
 }
 .contest .title-segment._small {
   font-size: 52px;
@@ -563,9 +564,9 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 10px;
+  top: 0px;
   width: calc(100% + 30px);
-  height: calc(100% - 10px);
+  height: calc(100% + 10px);
   background: linear-gradient(180deg, #e42313 2.25%, #fc5e51 89.96%);
 }
 

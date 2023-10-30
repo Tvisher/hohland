@@ -1202,7 +1202,7 @@ body {
     border-radius: 0px 0px 0px 200px;
   }
 }
-@media (max-width: 1300px) {
+@media (max-width: 1440px) {
   .poll-section,
   .form-section,
   .header {
@@ -1224,8 +1224,10 @@ body {
   .contest .contest__title {
     transform: skewY(-12deg);
   }
-}
-@media (max-width: 1250px) {
+  .header__image {
+    width: 60%;
+    left: 40%;
+  }
   .contest__paralax {
     width: 210px;
     height: 270px;

@@ -1199,7 +1199,31 @@ body {
   }
 }
 
-@media (max-width: 1300px) {
+// @media (max-width: 1300px) {
+//   .poll-section,
+//   .form-section,
+//   .header {
+//     border-radius: 0px;
+//   }
+//   .header__content {
+//     padding-left: 40px;
+//   }
+//   .header__title {
+//     font-size: 70px;
+//     margin-bottom: 75px;
+//   }
+//   .header {
+//     padding-bottom: 60px;
+//   }
+//   .header__image {
+//     border-radius: 0px 0px 0px 213px;
+//   }
+//   .contest .contest__title {
+//     transform: skewY(-12deg);
+//   }
+// }
+
+@media (max-width: 1440px) {
   .poll-section,
   .form-section,
   .header {
@@ -1221,9 +1245,10 @@ body {
   .contest .contest__title {
     transform: skewY(-12deg);
   }
-}
-
-@media (max-width: 1250px) {
+  .header__image {
+    width: 60%;
+    left: 40%;
+  }
   .contest__paralax {
     width: 210px;
     height: 270px;

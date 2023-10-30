@@ -1210,6 +1210,7 @@ body {
 @media (max-width: 1440px) {
   .container {
     padding: 0px 25px;
+    max-width: 1100px;
   }
   .form-section {
     border-radius: 0px;
@@ -1236,9 +1237,8 @@ body {
   .contest .contest__title {
     transform: skewY(-12deg);
   }
-  .header__image {
-    width: 60%;
-    left: 40%;
+  .new-taste-image {
+    transform: scale(0.9);
   }
   .contest__paralax {
     width: 210px;
@@ -1301,9 +1301,7 @@ body {
   .poll-app__questions-image {
     width: 450px;
     height: 450px;
-  }
-  .poll-app__questions-image {
-    right: 20px;
+    right: 0px;
   }
   .header-mouse-ball {
     display: none;
@@ -1353,9 +1351,9 @@ body {
     font-size: 18px;
   }
   .poll-app__questions-image {
-    right: 100px;
-    width: 430px;
-    height: 430px;
+    width: 420px;
+    height: 420px;
+    right: 0px;
   }
   .answer__content {
     padding: 10px 15px;

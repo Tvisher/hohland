@@ -807,6 +807,10 @@ body {
      object-fit: contain;
 }
 
+.poll-app__questions-content-w {
+  width: 100%;
+}
+
 .form-modal {
   position: fixed;
   left: 0;
@@ -1289,16 +1293,113 @@ body {
     margin-bottom: 30px;
   }
   .second-screen {
-    padding-top: 80px;
+    padding-top: 50px;
   }
   .second-screen .second-screen__title {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
   }
   .second-screen .second-screen__title {
-    font-size: 54px;
+    font-size: 48px;
   }
   .poll-section {
-    padding: 110px 0 100px;
+    padding: 40px 0 60px;
+  }
+  .poll-section__paralax .new-taste-image__paralax[data-paralax-item="2"] {
+    transform: translateY(20%) !important;
+    width: 142px;
+    height: 135px;
+  }
+  .block__title {
+    font-size: 27px;
+  }
+  .block__descr {
+    font-size: 22px;
+  }
+  .second-screen__block {
+    margin-bottom: 120px;
+  }
+  .second-screen .second-screen__title {
+    margin-bottom: 0;
+  }
+  .poll-section__title {
+    font-size: 46px;
+    margin-bottom: 30px;
+    line-height: 120%;
+  }
+  .poll-app__question {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+  .answer__text {
+    font-size: 18px;
+  }
+  .poll-app__questions-image {
+    right: 100px;
+    width: 430px;
+    height: 430px;
+  }
+  .answer__content {
+    padding: 10px 15px;
+  }
+  .poll-app__questions-image .absolute-image[data-image="2"] {
+    width: 180px;
+    height: 150px;
+    right: 60px;
+    bottom: -80px;
+  }
+  .poll-app__questions-image .absolute-image[data-image="1"] {
+    width: 182px;
+    height: 113px;
+    bottom: -2px;
+    right: -37px;
+  }
+  .image-title {
+    top: -45px;
+    font-size: 45px;
+  }
+  .poll-app__questions-image {
+    top: 50px;
+  }
+  .new-taste-image {
+    margin: auto;
+  }
+  .poll-section__paralax .new-taste-image__paralax[data-paralax-item="1"] {
+    top: 5px;
+    left: -4%;
+    transform: translateY(-120%) scale(-1, 1) !important;
+    width: 195px;
+    height: 103px;
+  }
+  .gradient-btn {
+    font-size: 22px;
+    padding: 10px 45px;
+  }
+  .test-result__title {
+    font-size: 22px;
+  }
+  .test-result__title-wrapper .absolute-title {
+    font-size: 32px;
+    border-radius: 15px;
+    transform: translate(130%, -50%) skewY(-12deg);
+  }
+  .test-result__title-wrapper,
+  .poll-section__title {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .test-result__subtitle {
+    font-size: 28px;
+  }
+  .test-result__wrapper {
+    gap: 20px;
+  }
+  .test-result__block {
+    padding: 15px;
+    flex: 0 0 calc(50% - 10px);
+  }
+  .ingredient-item:not(:last-child),
+  .cooking-process__item {
+    margin-bottom: 5px;
   }
 }
 @media (max-width: 1100px) {
@@ -1373,5 +1474,97 @@ body {
   }
   .test-result__block {
     flex: 0 0 calc(50% - 10px);
+  }
+  .form-section__wrapper {
+    flex-direction: column;
+  }
+  .form-section__text {
+    max-width: inherit;
+    margin-bottom: 30px;
+  }
+  .form-section__wrapper .form-section__title br,
+  .form-section__wrapper .form-section__descr br {
+    display: none;
+  }
+  .form-input {
+    max-width: inherit;
+  }
+  .form-section {
+    padding: 50px 0px 120px;
+  }
+  .form-section__wrapper .form-section__title {
+    font-size: 54px;
+    margin-bottom: 20px;
+  }
+  .contest__paralax {
+    display: none;
+  }
+  .contest__about .about__block {
+    flex: 0 0 calc(50% - 10px);
+  }
+  .contest__about .about__block:first-child {
+    margin-right: 20px;
+  }
+}
+@media (max-width: 800px) {
+  .footer__wrapper {
+    flex-direction: column;
+  }
+  .footer__logo {
+    order: 1;
+    margin-bottom: 20px;
+  }
+  .footer__socials {
+    margin-bottom: 20px;
+    order: 2;
+  }
+  .footer__dev {
+    order: 3;
+  }
+  .footer {
+    padding: 30px 0;
+    padding-top: 50px;
+  }
+  .poll-section {
+    padding-top: 50px;
+  }
+  .poll-section__paralax .new-taste-image__paralax[data-paralax-item="1"] {
+    transform: translateY(-116%) !important;
+  }
+}
+@media (max-width: 768px) {
+  .contest__about {
+    flex-direction: column;
+  }
+  .contest__about .about__block:first-child {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+  .contest .contest__title {
+    font-size: 45px;
+  }
+  .contest .title-segment._small {
+    font-size: 28px;
+    margin-top: 10px;
+  }
+  .contest .red-selection {
+    padding: 0;
+    margin-left: 10px;
+  }
+  .contest .red-selection::before {
+    border-radius: 15px;
+  }
+  .contest {
+    padding-top: 75px;
+  }
+  .contest__about {
+    padding-top: 100px;
+  }
+  .contest__about .about__title {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  .contest__about p {
+    font-size: 22px;
   }
 }/*# sourceMappingURL=main.css.map */

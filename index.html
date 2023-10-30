@@ -26,13 +26,13 @@
                     </a>
                     <div class="header__title">
                         <div class="title-segment" data-aos="fade-up-right">Вкусные</div>
-                        <div class="red-selection title-segment" data-aos="fade-up-right" data-aos-delay="300">
+                        <div class="red-selection title-segment" data-aos="fade-up-left" data-aos-delay="300">
                             <span>новинки</span>
                         </div>
                         <!-- <div class="title-segment">от Хохланд</div> -->
                     </div>
-                    <div class="header__descr large" data-aos="fade-up" data-aos-delay="400">+Конкурс</div>
-                    <div class="header__descr" data-aos="fade-up" data-aos-delay="600">Участвуй в конкурсе и получай
+                    <div class="header__descr large" data-aos="fade-right" data-aos-delay="400">+Конкурс</div>
+                    <div class="header__descr" data-aos="fade-right" data-aos-delay="600">Участвуй в конкурсе и получай
                         призы</div>
                 </div>
             </div>
@@ -49,17 +49,17 @@
         <main>
             <section class="second-screen">
                 <div class="container">
-                    <div class="second-screen__title">
+                    <div class="second-screen__title" data-aos="fade-in">
                         Встречайте сразу три <br>новых вкуса
                     </div>
 
                     <div class="second-screen__block" data-block="1">
                         <div class="block__text">
-                            <div class="block__title">
+                            <div class="block__title" data-aos="fade-right">
                                 <span>Творожный сыр</span>
                                 <span>с маринованными огурцами</span>
                             </div>
-                            <div class="block__descr">
+                            <div class="block__descr" data-aos="fade-up">
                                 Этот вкус порадует всех любителей солененького! Сыр нежной кремовой текстурой
                                 и&nbsp;пряными
                                 нотками маринованных огурчиков не&nbsp;оставит равнодушным. Он&nbsp;легко распределяется
@@ -67,7 +67,7 @@
                                 ржаного хлеба или хрустящему тосту и&nbsp;дарит бутерброду свежий, слегка соленый вкус.
                             </div>
                         </div>
-                        <div class="block__image">
+                        <div class="block__image" data-aos="zoom-in">
                             <div class="new-taste-image">
                                 <img src="./img/new taste-1.png" alt="">
                                 <div class="new-taste-image__paralax" data-paralax-item="1" data-id="paralax-block">
@@ -89,7 +89,7 @@
                     </div>
 
                     <div class="second-screen__block" data-block="2">
-                        <div class="block__image">
+                        <div class="block__image" data-aos="zoom-in">
                             <div class="new-taste-image">
                                 <img src="./img/new taste-2.png" alt="">
                                 <div class="new-taste-image__paralax" data-paralax-item="1" data-id="paralax-block">
@@ -116,10 +116,10 @@
                             </div>
                         </div>
                         <div class="block__text">
-                            <div class="block__title">
+                            <div class="block__title" data-aos="fade-left">
                                 <span>Творожный сыр «Овощи-гриль»</span>
                             </div>
-                            <div class="block__descr">
+                            <div class="block__descr" data-aos="fade-up">
                                 Если вы&nbsp;любите сочные овощи с&nbsp;ароматом дымка, то&nbsp;этот вкус для вас!
                                 Текстура
                                 здесь
@@ -133,10 +133,10 @@
 
                     <div class="second-screen__block" data-block="3">
                         <div class="block__text">
-                            <div class="block__title">
+                            <div class="block__title" data-aos="fade-right">
                                 <span>Творожный сыр с чесноком</span>
                             </div>
-                            <div class="block__descr">
+                            <div class="block__descr" data-aos="fade-up">
                                 Этот вкус порадует всех любителей солененького! Сыр нежной кремовой текстурой
                                 и&nbsp;пряными
                                 Если вы&nbsp;ценитель пикантных вкусов, то&nbsp;этот сыр для вас! Он&nbsp;приготовлен
@@ -144,7 +144,7 @@
                                 насыщенный сливочно-чесночный вкус. Этот сыр прекрасно подойдет к&nbsp;хрустящим хлебцам
                             </div>
                         </div>
-                        <div class="block__image">
+                        <div class="block__image" data-aos="zoom-in">
                             <div class="new-taste-image">
                                 <img src="./img/new taste-3.png" alt="">
                                 <div class="new-taste-image__paralax" data-paralax-item="1" data-id="paralax-block">
@@ -171,7 +171,7 @@
                 <div class="poll-section__paralax">
                     <div class="new-taste-image__paralax" data-paralax-item="1" data-id="paralax-block">
                         <div class="new-taste-image__paralax-wrapper" data-depth="0.02">
-                            <div class="new-taste-image__paralax-container">
+                            <div class="new-taste-image__paralax-container" data-aos="fade-in">
                                 <img src="./img/test-greenery.png" alt="">
                             </div>
                         </div>
@@ -181,26 +181,31 @@
                     <div class="poll-app" id="poll-app">
                         <transition name="fade" mode="out-in">
                             <div class="poll-app__questions" v-if="!showResult && currentQuestion">
-                                <div class="poll-section__title">Создай свой идеальный <br> завтрак с Хохланд</div>
-                                <transition name="fade" mode="out-in">
-                                    <div class="poll-app__questions-content" :key="currentQuestion.question">
-                                        <div class="poll-app__question">{{currentQuestion.question}}</div>
-                                        <div class="poll-app__answer-list">
-                                            <div class="poll-app-answer" v-for="answer in currentQuestion.answerList">
-                                                <input type="radio" class="answer__input"
-                                                    :name="currentQuestion.question" :value="answer.type"
-                                                    v-model="selectedAnswerLetter">
-                                                <div class="answer__content">
-                                                    <div class="answer__letter">{{answer.letter}}.</div>
-                                                    <div class="answer__text">{{answer.text}}</div>
+                                <div class="poll-section__title" data-aos="fade-right">Создай свой идеальный <br>
+                                    завтрак с Хохланд</div>
+                                <div data-aos="fade-up">
+                                    <transition name="fade" mode="out-in">
+                                        <div class="poll-app__questions-content" :key="currentQuestion.question">
+                                            <div class="poll-app__question">{{currentQuestion.question}}</div>
+                                            <div class="poll-app__answer-list">
+                                                <div class="poll-app-answer"
+                                                    v-for="answer in currentQuestion.answerList">
+                                                    <input type="radio" class="answer__input"
+                                                        :name="currentQuestion.question" :value="answer.type"
+                                                        v-model="selectedAnswerLetter">
+                                                    <div class="answer__content">
+                                                        <div class="answer__letter">{{answer.letter}}.</div>
+                                                        <div class="answer__text">{{answer.text}}</div>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <div class="poll-app-btn gradient-btn" @click="setAnswer">
+                                                <span>Ответить</span>
+                                            </div>
                                         </div>
-                                        <div class="poll-app-btn gradient-btn" @click="setAnswer"><span>Ответить</span>
-                                        </div>
-                                    </div>
-                                </transition>
-                                <div class="poll-app__questions-image">
+                                    </transition>
+                                </div>
+                                <div class="poll-app__questions-image" data-aos="zoom-in">
                                     <div class="poll-app__questions-image__wrapper">
                                         <img src="./img/poll-image.jpg" alt="">
                                     </div>
@@ -250,7 +255,7 @@
                 <div class="poll-section__paralax">
                     <div class="new-taste-image__paralax" data-paralax-item="2" data-id="paralax-block">
                         <div class="new-taste-image__paralax-wrapper" data-depth="-0.02">
-                            <div class="new-taste-image__paralax-container">
+                            <div class="new-taste-image__paralax-container" data-aos="fade-in">
                                 <img src="./img/test-garlic.png" alt="">
                             </div>
                         </div>
@@ -261,14 +266,16 @@
 
                 <div class="container">
                     <div class="contest__title__wrapper">
-                        <div class="contest__title">
-                            <div class="title-segment">Внимание,</div>
-                            <div class="red-selection title-segment">конкурс</div>
-                            <div class="title-segment _small">«Сначала сфоткай, потом съешь»</div>
+                        <div class="contest__title-w" data-aos="fade-up-right">
+                            <div class="contest__title">
+                                <div class="title-segment">Внимание,</div>
+                                <div class="red-selection title-segment">конкурс</div>
+                                <div class="title-segment _small">«Сначала сфоткай, потом съешь»</div>
+                            </div>
                         </div>
                         <div class="contest__paralax" data-paralax-item="2" data-id="paralax-block">
                             <div class="contest__paralax-wrapper" data-depth="0.02">
-                                <div class="contest__paralax-container">
+                                <div class="contest__paralax-container" data-aos="zoom-in">
                                     <img src="./img/vegetables-pair.png" alt="">
                                 </div>
                             </div>
@@ -276,7 +283,7 @@
                     </div>
 
                     <div class="contest__about">
-                        <div class="about__block">
+                        <div class="about__block" data-aos="fade-up">
                             <div class="about__title">О конкурсе</div>
                             <p>
                                 Теперь, когда вы&nbsp;знаете, как приготовить идеальный завтрак с&nbsp;сыром Хохланд,
@@ -289,7 +296,7 @@
                                 по&nbsp;количеству лайков.
                             </span>
                         </div>
-                        <div class="about__block">
+                        <div class="about__block" data-aos="fade-up">
                             <div class="about__title">Условия просты</div>
                             <div class="about__list">
                                 <div class="list-item">Выберите рецепт, который подходит вашему типу личности
@@ -305,11 +312,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="contest__bann">
+                    <div class="contest__bann" data-aos="zoom-in">
                         <div class="bann__title">Призы</div>
                     </div>
-                    <div class="btn-wrapper">
+                    <div class="btn-wrapper" data-aos="zoom-in">
                         <a href="javascript:void(0)" class="gradient-btn"><span>Принять участие в конкурсе!</span></a>
                     </div>
                 </div>
@@ -318,12 +324,13 @@
                 <div class="container">
                     <div class="form-section__wrapper">
                         <div class="form-section__text">
-                            <div class="form-section__title">Остались <br> вопросы?</div>
-                            <div class="form-section__descr">Заполни форму и&nbsp;мы <br> с&nbsp;радостью
+                            <div class="form-section__title" data-aos="fade-right">Остались <br> вопросы?</div>
+                            <div class="form-section__descr" data-aos="fade-right" data-aos-delay="300">Заполни форму
+                                и&nbsp;мы <br> с&nbsp;радостью
                                 проконсультируем,
                                 развеем тревоги и&nbsp;сомнения :)</div>
                         </div>
-                        <div class="form-section__inner">
+                        <div class="form-section__inner" data-aos="fade-in">
                             <form action="#">
                                 <div class="inputs-wrapper">
                                     <input type="text" placeholder="Имя" class="form-input">
@@ -345,7 +352,7 @@
                         </div>
                     </div>
                     <div class="form-section__image">
-                        <img src="./img/footer-vegetables.png" alt="">
+                        <img src="./img/footer-vegetables.png" alt="" data-aos="fade-up">
                     </div>
                 </div>
             </section>

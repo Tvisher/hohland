@@ -222,13 +222,14 @@
                                 </div>
                             </div>
                             <div v-else class="test-result">
-                                <div class="test-result__title-wrapper">
+                                <div class="test-result__title-wrapper" data-aos="fade-right">
                                     <div class="poll-section__title">Ваш идеальный завтрак!</div>
                                     <div class="absolute-title">готово</div>
                                 </div>
-                                <div class="test-result__title">{{resultType.resTitle}}</div>
+                                <div class="test-result__title" data-aos="fade-right" data-aos-delay="200">
+                                    {{resultType.resTitle}}</div>
                                 <div class="test-result__wrapper">
-                                    <div class="test-result__block">
+                                    <div class="test-result__block" data-aos="zoom-in" data-aos-delay="300">
                                         <div class="test-result__subtitle">Вам понадобятся:</div>
                                         <div class="ingredient-item" v-for="ingredient in resultType.ingredients">
                                             <span class="ingredient__name">{{ingredient.name}}</span>
@@ -236,7 +237,7 @@
                                             <span class="ingredient__count">{{ingredient.count}}</span>
                                         </div>
                                     </div>
-                                    <div class="test-result__block">
+                                    <div class="test-result__block" data-aos="zoom-in" data-aos-delay="300">
                                         <div class="test-result__subtitle">Как готовить:</div>
                                         <div class="cooking-process__item"
                                             v-for="(cookingProcessItem,index) in resultType.cookingProcess">
@@ -245,10 +246,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="btn-wrapper">
+                                <div class="btn-wrapper" data-aos="zoom-in" data-aos-delay="350">
                                     <div class="gradient-btn" @click="restartPoll"><span>Пройти ещё раз</span></div>
                                 </div>
-                                <div class="btn-wrapper mt20">
+                                <div class="btn-wrapper mt20" data-aos="zoom-in" data-aos-delay="350">
                                     <a href="#contest" class="gradient-btn"><span>Теперь за призами</span></a>
                                 </div>
                             </div>

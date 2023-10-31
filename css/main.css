@@ -824,6 +824,9 @@ body {
 }
 
 .poll-app__questions-content-w {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   width: 100%;
 }
 

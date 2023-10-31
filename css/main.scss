@@ -708,7 +708,9 @@ body {
   margin-bottom: 27px;
 }
 .form-section__inner {
-  flex-shrink: 0;
+  // flex-shrink: 0;
+  max-width: 685px;
+  width: 100%;
 }
 .form-input,
 .form-textarea {
@@ -752,6 +754,8 @@ body {
     }
   }
   .privacy-block__text {
+    max-width: 650px;
+    width: 100%;
     position: relative;
     padding-left: 40px;
     color: #fff;
@@ -782,6 +786,11 @@ body {
       background-size: 10px;
       background-position: center;
       opacity: 0;
+    }
+    a {
+      display: inline;
+      color: #0bbbef;
+      text-decoration-line: underline;
     }
   }
 }
@@ -1218,6 +1227,35 @@ body {
   will-change: transform;
 }
 
+.field-wrap {
+  width: 100%;
+  &.has-err {
+    .form-input,
+    .form-textarea {
+      border-color: #e62717;
+      color: #e62717;
+      &::placeholder {
+        color: #e62717;
+      }
+    }
+    .err-mes {
+      display: block;
+    }
+  }
+  .err-mes {
+    padding-left: 22px;
+    color: #e42313;
+    font-family: Circe;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0.151px;
+    margin-top: 5px;
+    display: none;
+  }
+}
+
 @media (max-width: 1500px) {
   .form-section__wrapper {
     justify-content: flex-start;
@@ -1542,6 +1580,9 @@ body {
 }
 
 @media (max-width: 1100px) {
+  .form-section__inner {
+    max-width: inherit;
+  }
   .second-screen .second-screen__title {
     margin-bottom: 100px;
   }
@@ -2034,4 +2075,251 @@ body {
   .form-section {
     padding-bottom: 70px;
   }
+}
+
+// #dropzone-wrapper {
+//   .ico {
+//     pointer-events: none;
+//   }
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   margin: 27px 0;
+//   position: relative;
+//   width: 100%;
+//   padding: 20px;
+//   border-radius: 22px;
+//   border: 2px dashed #fff;
+//   .file-input {
+//     width: 100%;
+//     height: 100%;
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     margin: 0;
+//     opacity: 0;
+//     display: none;
+//   }
+//   .dropzone-wrapper__text {
+//     text-decoration: underline;
+//   }
+
+//   &.file-added {
+//     .dropzone-wrapper__text {
+//       display: none;
+//     }
+//     .dropzone-wrapper__filename-wrapper {
+//       display: flex;
+//     }
+//   }
+// }
+// .dropzone-wrapper__filename-wrapper {
+//   display: none;
+//   align-items: center;
+//   .remove-file {
+//     width: 12px;
+//     height: 12px;
+//     font-weight: 700;
+//     color: #fff;
+//   }
+// }
+
+.dropzone .dz-preview.dz-image-preview {
+  background-color: transparent;
+}
+
+.dz-message_before {
+  color: #fff;
+  font-family: Circe;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.151px;
+  text-decoration-line: underline;
+}
+
+.dropzone {
+  margin: 27px 0;
+  padding: 16px 8px 11px;
+  background: transparent !important;
+  border: 2px dashed #d8dce9 !important;
+  border-radius: 10px;
+  min-height: 120px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  &.dz-started .dz-message {
+    display: block;
+    order: 1;
+    width: 90px;
+    height: 70px;
+    margin: 0 8px 8px;
+
+    svg {
+      display: none;
+    }
+
+    .dz-message_after {
+      display: flex;
+    }
+
+    .dz-message_before {
+      display: none;
+    }
+  }
+
+  .dz-message_after {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #0066b0;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 120%;
+    text-align: center;
+    color: #0066b0;
+    padding: 10px;
+  }
+
+  .dz-message {
+    margin: 12px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .dz-preview {
+    margin: 0 8px 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    min-height: initial;
+
+    &:hover .dz-image img {
+      filter: none;
+      transform: none;
+    }
+
+    .dz-error-message {
+      font-size: 12px;
+      line-height: 140%;
+      padding: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .dz-image {
+      width: 100%;
+      height: 70px;
+      border-radius: 8px;
+      margin-bottom: 3px;
+      overflow: hidden;
+    }
+
+    .dz-progress {
+      display: none;
+      margin-top: 0;
+      top: 28px;
+
+      .dz-upload {
+        background: #0066b0;
+      }
+    }
+
+    .dz-remove {
+      position: relative;
+      width: 16px;
+      font-size: 0;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+
+    .dz-details {
+      padding: 0;
+      opacity: 1;
+      position: relative;
+      top: initial;
+      left: initial;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;
+      letter-spacing: 0.25px;
+      text-decoration-line: underline;
+      color: #0066b0;
+      width: 70px;
+      margin-right: 3px;
+      min-width: initial;
+
+      .dz-size {
+        display: none;
+      }
+
+      .dz-filename {
+        color: #fff;
+
+        width: 70px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        span {
+          padding: 0;
+        }
+
+        // &:hover span {
+        //   border: none;
+        //   background: transparent;
+        // }
+      }
+    }
+
+    .dz-success-mark,
+    .dz-error-mark {
+      top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: -15px;
+      margin-top: 0;
+
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
+
+.dz-message {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.15px;
+  color: #0066b0;
+
+  svg {
+    margin-bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.dropzone .dz-preview .dz-details .dz-filename span {
+  background-color: transparent !important;
+  border: none;
+  padding: 0 !important;
 }

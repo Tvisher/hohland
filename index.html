@@ -31,6 +31,9 @@
                         </div>
                         <!-- <div class="title-segment">от Хохланд</div> -->
                     </div>
+                    <div class="header__image-mob">
+                        <img src="./img/mobile-header-image.jpg" alt="">
+                    </div>
                     <div class="header__descr large" data-aos="fade-right" data-aos-delay="400">+Конкурс</div>
                     <div class="header__descr" data-aos="fade-right" data-aos-delay="600">Участвуй в конкурсе и получай
                         призы</div>
@@ -1117,6 +1120,9 @@
                     this.answerList = [];
                     this.showResult = false;
                     this.resultType = null;
+                    const appStartHtmlEl = document.querySelector('.poll-section');
+                    appStartHtmlEl.scrollIntoView({ block: "start", behavior: "smooth" })
+
                 },
                 findMostFrequentElement(arr) {
                     const elementCount = {};

@@ -187,6 +187,8 @@ pollForm.addEventListener('submit', (e) => {
     }
     const hasError = pollForm.querySelectorAll('.has-err').length;
     if (hasError) return;
+
+
 })
 
 

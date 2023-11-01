@@ -178,7 +178,6 @@ pollForm.addEventListener('submit', (e) => {
     if (messageTextatrea.value.length < 3) {
         messageTextatrea.closest('.field-wrap').classList.add('has-err')
     }
-    console.log(formFiles.length);
     if (formFiles.length < 1) {
         myDropzone.element.closest('.field-wrap').classList.add('has-err')
     }
@@ -188,8 +187,21 @@ pollForm.addEventListener('submit', (e) => {
     const hasError = pollForm.querySelectorAll('.has-err').length;
     if (hasError) return;
 
+    const formData = new FormData(pollForm);
+    pollForm.forEach(file => {
+        formData.append(file.name, file);
+    });
 
-})
+    fetch('sendmail.php', {
+        method: 'POST',
+        body: formData
+    }).then(() => {
+        pollForm.reset()
+        myDropzone.removeAllFiles(true);
+    }).catch(err => {
+        console.log(err);
+    })
+});
 
 
 

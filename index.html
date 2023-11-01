@@ -39,14 +39,14 @@
                         <img src="./img/mobile-header-image.jpg" alt="">
                     </div>
                     <div class="header__descr large" data-aos="fade-right" data-aos-delay="400">+Конкурс</div>
-                    <div class="header__descr" data-aos="fade-right" data-aos-delay="600">Участвуй в конкурсе и получай
+                    <div class="header__descr" data-aos="fade-right" data-aos-delay="600">Участвуй и получай
                         призы</div>
                 </div>
             </div>
             <div class="header__image" data-aos>
                 <img src="./img/main-screen-image.png" alt="">
             </div>
-            <div class="header-mouse-ball">
+            <div class="header-mouse-ball" data-second-screen="">
                 <svg width="31" height="50" viewBox="0 0 31 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.5" y="0.5" width="30" height="49" rx="15" stroke="white" />
                     <rect x="12.5" y="10.5" width="6" height="11" rx="3" stroke="white" />
@@ -67,11 +67,10 @@
                                 <span>с маринованными огурцами</span>
                             </div>
                             <div class="block__descr" data-aos="fade-up">
-                                Этот вкус порадует всех любителей солененького! Сыр нежной кремовой текстурой
-                                и&nbsp;пряными
-                                нотками маринованных огурчиков не&nbsp;оставит равнодушным. Он&nbsp;легко распределяется
-                                по&nbsp;ломтику
-                                ржаного хлеба или хрустящему тосту и&nbsp;дарит бутерброду свежий, слегка соленый вкус.
+                                Этот вкус порадует всех любителей солененького! Сыр с&nbsp;нежной кремовой текстурой
+                                и&nbsp;пряными нотками маринованных огурчиков не&nbsp;оставит равнодушным. Он&nbsp;легко
+                                распределяется по&nbsp;ломтику ржаного хлеба или хрустящему тосту и&nbsp;дарит
+                                бутерброду свежий, слегка соленый вкус. Идеален для бутербродов.
                             </div>
                         </div>
                         <div class="block__image" data-aos="zoom-in">
@@ -128,12 +127,9 @@
                             </div>
                             <div class="block__descr" data-aos="fade-up">
                                 Если вы&nbsp;любите сочные овощи с&nbsp;ароматом дымка, то&nbsp;этот вкус для вас!
-                                Текстура
-                                здесь
-                                сочетается с&nbsp;яркими нотами запеченных овощей и&nbsp;ноткой пикантной паприки!
-                                С&nbsp;этим сыром можно
-                                приготовить аппетитные закуски для семейного застолья: например, блинные рулетики
-                                с&nbsp;зеленью.
+                                Сливочная текстура здесь сочетается с&nbsp;яркими нотами запеченных овощей и&nbsp;ноткой
+                                пикантной паприки! С&nbsp;этим сыром можно приготовить аппетитные закуски для семейного
+                                застолья: например, блинные рулетики с&nbsp;зеленью.
                             </div>
                         </div>
                     </div>
@@ -144,11 +140,10 @@
                                 <span>Творожный сыр с чесноком</span>
                             </div>
                             <div class="block__descr" data-aos="fade-up">
-                                Этот вкус порадует всех любителей солененького! Сыр нежной кремовой текстурой
-                                и&nbsp;пряными
                                 Если вы&nbsp;ценитель пикантных вкусов, то&nbsp;этот сыр для вас! Он&nbsp;приготовлен
                                 из&nbsp;натурального молока, сливок и&nbsp;настоящего чеснока, поэтому у&nbsp;него такой
                                 насыщенный сливочно-чесночный вкус. Этот сыр прекрасно подойдет к&nbsp;хрустящим хлебцам
+                                или в&nbsp;качестве начинки для пиццы.
                             </div>
                         </div>
                         <div class="block__image" data-aos="zoom-in">
@@ -231,7 +226,9 @@
                                     <div class="absolute-title">готово</div>
                                 </div>
                                 <div class="test-result__title" data-aos="fade-right" data-aos-delay="200">
-                                    {{resultType.resTitle}}</div>
+                                    <span class="seletction-title">{{resultType.resType}}</span>
+                                    {{resultType.resTitle}}
+                                </div>
                                 <div class="test-result__wrapper">
                                     <div class="test-result__block" data-aos="zoom-in" data-aos-delay="300">
                                         <div class="test-result__subtitle">Вам понадобятся:</div>
@@ -294,10 +291,9 @@
                         <div class="about__block" data-aos="fade-up">
                             <div class="about__title">О конкурсе</div>
                             <p>
-                                Теперь, когда вы&nbsp;знаете, как приготовить идеальный завтрак с&nbsp;сыром Хохланд,
-                                пришло
-                                время проверить это на&nbsp;практике. Объявляем конкурс на&nbsp;лучшую фотографию вашего
-                                любимого завтрака с&nbsp;новыми вкусами Хохланд.
+                                Теперь, когда вы&nbsp;знаете, как приготовить идеальный завтрак с&nbsp;сыром Hochland,
+                                пришло время проверить это на&nbsp;практике. Объявляем конкурс на&nbsp;лучшую фотографию
+                                вашего любимого завтрака с&nbsp;новыми вкусами Hochland.
                             </p>
                             <span>
                                 Призы получат участники конкурса, чьи фотографии<br> займут 1,2 и&nbsp;3&nbsp;место
@@ -307,25 +303,24 @@
                         <div class="about__block" data-aos="fade-up">
                             <div class="about__title">Условия просты</div>
                             <div class="about__list">
-                                <div class="list-item">Выберите рецепт, который подходит вашему типу личности
-                                    по&nbsp;итогам
+                                <div class="list-item">Выберите рецепт, который подходит вашему типу личности по итогам
+                                    теста.
                                     теста.</div>
-                                <div class="list-item">Приготовьте это блюдо, используя творожные новинки
-                                    от&nbsp;&laquo;Хохланд&raquo;</div>
-                                <div class="list-item">Сфотографируйте готовый завтрак (совет: отнеситесь к&nbsp;задаче
-                                    творчески, это повысит ваши шансы на&nbsp;победу).</div>
-                                <div class="list-item">Расскажите, сколько времени ушло на&nbsp;готовку, и&nbsp;каким
-                                    завтрак оказался на&nbsp;вкус.</div>
-                                <div class="list-item">Ждите лайки от&nbsp;восторженных коллег</div>
+                                <div class="list-item">Приготовьте это блюдо, используя творожные новинки Hochland</div>
+                                <div class="list-item">Сфотографируйте готовый завтрак (совет: отнеситесь к задаче
+                                    творчески, это повысит ваши шансы на победу).</div>
+                                <div class="list-item">Расскажите, сколько времени ушло на готовку и каким завтрак
+                                    оказался на вкус.</div>
+                                <div class="list-item">Ждите лайки от восторженных коллег.</div>
                             </div>
                         </div>
                     </div>
                     <div class="contest__bann" data-aos="zoom-in">
                         <div class="bann__title">Призы</div>
                     </div>
-                    <div class="btn-wrapper" data-aos="zoom-in">
+                    <!-- <div class="btn-wrapper" data-aos="zoom-in">
                         <a href="javascript:void(0)" class="gradient-btn"><span>Принять участие в конкурсе!</span></a>
-                    </div>
+                    </div> -->
                 </div>
             </section>
             <section class="form-section">
@@ -340,82 +335,72 @@
                             <form action="/" class="poll-form">
                                 <div class="inputs-wrapper">
                                     <div class="field-wrap">
-                                        <input type="text" placeholder="Имя" class="form-input">
+                                        <input autocomplete="off" type="text" name="name" placeholder="Имя"
+                                            class="form-input">
                                         <div class="err-mes">Поле не заполнено</div>
                                     </div>
                                     <div class="field-wrap">
-                                        <input type="text" placeholder="Фамилия" class="form-input">
+                                        <input autocomplete="off" type="text" name="surname" placeholder="Фамилия"
+                                            class="form-input">
                                         <div class="err-mes">Поле не заполнено</div>
                                     </div>
                                 </div>
                                 <div class="inputs-wrapper">
                                     <div class="field-wrap">
-                                        <input type="email" placeholder="E-mail" class="form-input">
-                                        <div class="err-mes">Поле не заполнено</div>
+                                        <input autocomplete="off" type="text" name="email" placeholder="E-mail"
+                                            class="form-input">
+                                        <div class="err-mes">Поле должно содержать Email</div>
                                     </div>
                                     <div class="field-wrap">
-                                        <input type="tel" placeholder="Телефон" class="form-input">
-                                        <div class="err-mes">Поле не заполнено</div>
+                                        <input autocomplete="off" type="tel" name="phone" placeholder="Телефон"
+                                            class="form-input">
+                                        <div class="err-mes">Поле не заполнено корректно</div>
                                     </div>
                                 </div>
                                 <div class="field-wrap">
-                                    <textarea name="form-textarea" class="form-textarea"
-                                        placeholder="Описание завтрака"></textarea>
+                                    <textarea name="message" class="form-textarea"
+                                        placeholder="Поделитесь впечатлениями от завтрака с новым вкусом Hochland"></textarea>
                                     <div class="err-mes">Поле не заполнено</div>
                                 </div>
-                                <!-- <div class="field-wrap" id="dropzone-wrapper">
-                                    <input type="file" name="file" class="file-input" />
-                                    <div class="ico">
-                                        <svg width="31" height="30" viewBox="0 0 31 30" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11.75 21.25V13.75L14.25 16.25" stroke="white" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M11.75 13.75L9.25 16.25" stroke="white" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path
-                                                d="M28 12.5V18.75C28 25 25.5 27.5 19.25 27.5H11.75C5.5 27.5 3 25 3 18.75V11.25C3 5 5.5 2.5 11.75 2.5H18"
-                                                stroke="white" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M28 12.5H23C19.25 12.5 18 11.25 18 7.5V2.5L28 12.5Z" stroke="white"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
+                                <div class="field-wrap ">
+                                    <div class="dropzone">
+                                        <div class="dz-message needsclick">
+                                            <svg width="31" height="30" viewBox="0 0 31 30" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.75 21.25V13.75L14.25 16.25" stroke="white" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M11.75 13.75L9.25 16.25" stroke="white" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path
+                                                    d="M28 12.5V18.75C28 25 25.5 27.5 19.25 27.5H11.75C5.5 27.5 3 25 3 18.75V11.25C3 5 5.5 2.5 11.75 2.5H18"
+                                                    stroke="white" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path d="M28 12.5H23C19.25 12.5 18 11.25 18 7.5V2.5L28 12.5Z"
+                                                    stroke="white" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                            <span class="dz-message_before">
+                                                Добавить фото (форматы - jpg, jpeg, png)
+                                            </span>
+                                            <span class="dz-message_after">
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div class="dropzone-wrapper__text">Добавить фото (форматы - jpg, jpeg, png)</div>
-                                    <div class="dropzone-wrapper__filename-wrapper">
-                                        <div class="dropzone-wrapper__filename"></div>
-                                        <div class="remove-file">X</div>
-                                    </div>
-                                </div> -->
-                                <div class="dropzone">
-                                    <div class="dz-message needsclick">
-                                        <svg width="31" height="30" viewBox="0 0 31 30" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11.75 21.25V13.75L14.25 16.25" stroke="white" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M11.75 13.75L9.25 16.25" stroke="white" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path
-                                                d="M28 12.5V18.75C28 25 25.5 27.5 19.25 27.5H11.75C5.5 27.5 3 25 3 18.75V11.25C3 5 5.5 2.5 11.75 2.5H18"
-                                                stroke="white" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M28 12.5H23C19.25 12.5 18 11.25 18 7.5V2.5L28 12.5Z" stroke="white"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        <span class="dz-message_before">
-                                            Добавить фото (форматы - jpg, jpeg, png)
-                                        </span>
-                                        <span class="dz-message_after">
-                                        </span>
-                                    </div>
+                                    <div class="err-mes">Необходимо загрузить хотябы одно изображение</div>
                                 </div>
-                                <div class="privacy-block">
-                                    <input type="checkbox" checked class="privacy-block__cb">
-                                    <span class="privacy-block__text">Подтверждаю своё согласие на обработку и хранение
-                                        персональных данных, а также с принятой ООО «ХОХЛАНД РУССЛАНД» <a href="#">
-                                            политикой конфиденциальности</a> в отношении обработки и защиты персональных
-                                        данных третьих лиц (пользователей)</span>
+                                <div class="field-wrap ">
+                                    <div class="privacy-block">
+                                        <input type="checkbox" name="privacy" checked class="privacy-block__cb">
+                                        <span class="privacy-block__text">Подтверждаю своё согласие на обработку и
+                                            хранение
+                                            персональных данных, а также с принятой ООО «ХОХЛАНД РУССЛАНД» <a href="#">
+                                                политикой конфиденциальности</a> в отношении обработки и защиты
+                                            персональных
+                                            данных третьих лиц (пользователей)</span>
+                                    </div>
+                                    <div class="err-mes">Необходимо согласится с условиями</div>
                                 </div>
-                                <button class="gradient-btn"><span>Отправить</span></button>
+                                <button class="gradient-btn"><span>Принять участие в конкурсе!</span></button>
                             </form>
                         </div>
                     </div>
@@ -514,8 +499,8 @@
                             fill="white" />
                     </svg>
                 </div>
-                <div class="form-modal__title">Ваше обращение <br> отправлено.</div>
-                <div class="form-modal__descr">Спасибо за обратную связь!</div>
+                <div class="form-modal__title">Ваша заявка <br> отправлена.</div>
+                <div class="form-modal__descr">Желаем удачи!</div>
             </div>
         </div>
     </div>
@@ -525,6 +510,7 @@
     <script src="./js/vue.global.js"></script>
     <script src="./js/parallax.min.js"></script>
     <script src="./js/aos.js"></script>
+    <script src="https://unpkg.com/imask"></script>
     <script src="./js/main.js"></script>
     <script src="./js/pollApp.js"></script>
 </body>

@@ -137,6 +137,8 @@ function validateEmail(email) {
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
+const formModal = document.querySelector('#form-modal');
+
 
 const pollForm = document.querySelector('.poll-form')
 const nameInput = pollForm.querySelector('[name="name"]');
@@ -191,8 +193,10 @@ pollForm.addEventListener('submit', (e) => {
     pollForm.forEach(file => {
         formData.append(file.name, file);
     });
+    formModal.classList.add('show');
 
-    fetch('sendmail.php', {
+
+    fetch('/sendmail.php', {
         method: 'POST',
         body: formData
     }).then(() => {

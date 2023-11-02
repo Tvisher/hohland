@@ -2305,3 +2305,26 @@ body {
 .poll-form .gradient-btn {
   margin-top: 27px;
 }
+
+.form-arrow {
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 1500px) {
+  .form-arrow {
+    justify-content: center;
+  }
+  .form-section__inner {
+    margin-left: 30px;
+  }
+}
+@media (max-width: 1100px) {
+  .form-section__inner {
+    margin-left: 0px;
+  }
+  .form-arrow {
+    display: none;
+  }
+}

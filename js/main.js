@@ -62,6 +62,7 @@ const myDropzone = new Dropzone(".dropzone", {
     addedfile: function (file) {
         this.element.closest('.field-wrap').classList.remove('has-err');
         const isAcceptedFiles = this.options.acceptedFiles.split(',').includes(file.type);
+
         if (isAcceptedFiles) {
             if (this.element === this.previewsContainer) {
                 this.element.classList.add("dz-started");
@@ -194,7 +195,6 @@ pollForm.addEventListener('submit', (e) => {
         formData.append(file.name, file);
     });
     formModal.classList.add('show');
-
 
     fetch('/sendmail.php', {
         method: 'POST',

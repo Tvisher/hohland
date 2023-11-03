@@ -728,6 +728,13 @@ body {
 .form-textarea::placeholder {
   color: #fff;
 }
+.form-input:focus::-moz-placeholder, .form-textarea:focus::-moz-placeholder {
+  opacity: 0.5;
+}
+.form-input:focus::placeholder,
+.form-textarea:focus::placeholder {
+  opacity: 0.5;
+}
 
 .form-input {
   max-width: 328px;

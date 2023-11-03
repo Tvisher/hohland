@@ -736,6 +736,11 @@ body {
   &::placeholder {
     color: #fff;
   }
+  &:focus {
+    &::placeholder {
+      opacity: 0.5;
+    }
+  }
 }
 .form-input {
   max-width: 328px;

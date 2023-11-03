@@ -191,7 +191,7 @@ pollForm.addEventListener('submit', (e) => {
     if (hasError) return;
 
     const formData = new FormData(pollForm);
-    pollForm.forEach(file => {
+    formFiles.forEach(file => {
         formData.append(file.name, file);
     });
     formModal.classList.add('show');
@@ -199,12 +199,22 @@ pollForm.addEventListener('submit', (e) => {
     fetch('/sendmail.php', {
         method: 'POST',
         body: formData
-    }).then(() => {
-        pollForm.reset()
-        myDropzone.removeAllFiles(true);
-    }).catch(err => {
-        console.log(err);
     })
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Ошибка');
+            }
+        })
+        .then((result) => {
+            console.log(result);
+            pollForm.reset()
+            myDropzone.removeAllFiles(true);
+        })
+        .catch((error) => {
+            console.log(err);
+        });
 });
 
 

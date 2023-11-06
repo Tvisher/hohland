@@ -2378,5 +2378,6 @@ body {
   }
   .contest__bann .contest__bann-title::before {
     top: 50% !important;
+    height: 120%;
   }
 }/*# sourceMappingURL=main.css.map */

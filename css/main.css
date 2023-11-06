@@ -2376,4 +2376,7 @@ body {
     font-size: 32px;
     bottom: -30px;
   }
+  .contest__bann .contest__bann-title::before {
+    top: 50% !important;
+  }
 }/*# sourceMappingURL=main.css.map */

@@ -194,27 +194,22 @@ pollForm.addEventListener('submit', (e) => {
     formFiles.forEach(file => {
         formData.append(file.name, file);
     });
-    formModal.classList.add('show');
-
-    fetch('/sendmail.php', {
+    pollForm.classList.add('sending');
+    fetch('/ajax/sendmail.php', {
         method: 'POST',
         body: formData
-    })
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Ошибка');
-            }
-        })
-        .then((result) => {
-            console.log(result);
+    }).then((response) => {
+        if (response.ok) {
             pollForm.reset()
             myDropzone.removeAllFiles(true);
-        })
-        .catch((error) => {
-            console.log(err);
-        });
+            pollForm.classList.remove('sending');
+            formModal.classList.add('show');
+        } else {
+            throw new Error('Ошибка');
+        }
+    }).catch((error) => {
+        console.log(error);
+    });
 });
 
 

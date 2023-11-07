@@ -668,11 +668,14 @@ body {
 
 .contest__bann {
   width: 539px;
-  padding-top: 51.5%;
+  padding-top: 539px;
   height: 0px;
   position: relative;
   margin: auto;
   .contest__bann-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: absolute;
     left: 0;
     top: 0;
@@ -687,7 +690,7 @@ body {
   .contest__bann-title {
     position: absolute;
     left: -90px;
-    top: 36px;
+    top: 45px;
     color: #fff;
     font-family: TT Marxiana;
     font-size: 61px;
@@ -698,31 +701,33 @@ body {
     text-transform: uppercase;
     transform: skewY(-12deg);
 
-    div {
+    .title-inner {
       position: relative;
-      z-index: 2;
+      &::before {
+        border-radius: 10px;
+        z-index: -1;
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 55%;
+        width: calc(100% + 48px);
+        height: calc(100% + 20px);
+        background: linear-gradient(180deg, #e42313 2.25%, #fc5e51 89.96%);
+      }
     }
-    &::before {
-      border-radius: 10px;
-      z-index: 1;
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      top: 55%;
-      width: calc(100% + 48px);
-      height: calc(100% + 20px);
-      background: linear-gradient(180deg, #e42313 2.25%, #fc5e51 89.96%);
-    }
+
     &._sec {
       left: inherit;
       top: inherit;
       right: -156px;
-      bottom: 61px;
+      bottom: 45px;
       font-size: 54px;
       text-transform: none;
-      &::before {
-        top: 60%;
+      .title-inner {
+        &::before {
+          top: 60%;
+        }
       }
     }
   }
@@ -2474,7 +2479,7 @@ body {
     font-size: 32px;
     bottom: -30px;
   }
-  .contest__bann .contest__bann-title::before {
+  .contest__bann .contest__bann-title .title-inner::before {
     top: 50% !important;
     height: 120%;
   }

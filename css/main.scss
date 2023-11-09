@@ -94,13 +94,24 @@ select:focus {
   }
 }
 
+// @font-face {
+//   font-family: "TT Marxiana";
+//   font-display: swap;
+//   src: url("../fonts/TTMarxiana-Grotesque.woff2") format("woff2");
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
 @font-face {
   font-family: "TT Marxiana";
-  font-display: swap;
-  src: url("../fonts/TTMarxiana-Grotesque.woff2") format("woff2");
-  font-weight: 400;
+  src: local("TT Marxiana Grotesque"), local("TT-Marxiana-Grotesque"),
+    url("../fonts/TTMarxiana-Grotesque.woff2") format("woff2"),
+    url("../fonts/TTMarxiana-Grotesque.woff") format("woff"),
+    url("../fonts/TTMarxiana-Grotesque.ttf") format("truetype");
+  font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "Circe";
   font-display: swap;

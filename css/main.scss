@@ -330,6 +330,8 @@ body {
     span {
       position: relative;
       z-index: 2;
+      display: inline-block;
+      vertical-align: text-top;
     }
     &::before {
       border-radius: 20px;
@@ -337,10 +339,10 @@ body {
       content: "";
       position: absolute;
       left: 50%;
-      transform: translateX(-50%);
-      top: 0;
+      top: 50%;
+      transform: translate(-50%, -50%);
       width: calc(100% + 48px);
-      height: calc(100% + 20px);
+      height: 100%;
       background: linear-gradient(180deg, #e42313 2.25%, #fc5e51 89.96%);
     }
   }

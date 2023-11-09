@@ -97,6 +97,7 @@ select:focus {
 @font-face {
   font-family: "TT Marxiana";
   src: local("TT Marxiana Grotesque"), local("TT-Marxiana-Grotesque"), url("../fonts/TTMarxiana-Grotesque.woff2") format("woff2"), url("../fonts/TTMarxiana-Grotesque.woff") format("woff"), url("../fonts/TTMarxiana-Grotesque.ttf") format("truetype");
+  font-display: swap;
   font-weight: normal;
   font-style: normal;
 }
@@ -183,7 +184,6 @@ body {
   background-color: #164194;
   font-family: "Circe";
   color: #fff;
-  cursor: url(../img/cursor.png), default !important;
 }
 
 .body__content {
@@ -255,7 +255,7 @@ body {
 .header__logo {
   width: 160px;
   height: 125px;
-  margin-bottom: 60px;
+  margin-bottom: 22px;
 }
 .header__logo img {
   width: 100%;
@@ -311,42 +311,39 @@ body {
   }
 }
 .header__title {
-  padding-top: 20px;
-  width: -moz-fit-content;
-  width: fit-content;
-  transform: skewy(-12deg);
-  text-transform: uppercase;
-  font-family: TT Marxiana;
-  font-size: 100px;
-  margin-bottom: 110px;
-  line-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 462px;
+  height: 331px;
+  margin-bottom: 150px;
 }
-.header__title span {
-  line-height: 100%;
-}
-.header__title .red-selection {
-  margin-top: 10px;
-  position: relative;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-.header__title .red-selection span {
-  position: relative;
-  z-index: 2;
-  display: inline-block;
-  vertical-align: text-top;
-}
-.header__title .red-selection::before {
-  border-radius: 20px;
-  z-index: 1;
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(100% + 48px);
+.header__title img {
+  width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #e42313 2.25%, #fc5e51 89.96%);
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  transform: translateX(-25px);
+}
+@media (max-width: 1440px) {
+  .header__title {
+    width: 323px;
+    height: 231px;
+    margin-bottom: 50px;
+  }
+}
+@media (max-width: 900px) {
+  .header__title {
+    width: 280px;
+  }
+}
+@media (max-width: 768px) {
+  .header__title {
+    width: 100%;
+    height: 50vw;
+  }
 }
 
 .header__descr {
@@ -555,24 +552,34 @@ body {
 
 .contest {
   padding-bottom: 85px;
-  padding-top: 145px;
+  padding-top: 90px;
 }
 .contest .contest__title {
-  font-size: 82px;
-  width: -moz-fit-content;
-  width: fit-content;
-  transform: skewY(-12deg) translateX(-60px);
-  text-transform: uppercase;
-  font-family: TT Marxiana;
+  width: 828px;
+  height: 381px;
 }
-.contest .title-segment {
-  display: inline-block;
-  line-height: 100%;
+.contest .contest__title img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: top center;
+     object-position: top center;
+  transform: translateX(-50px);
 }
-.contest .title-segment._small {
-  font-size: 52px;
-  display: block;
-  margin-top: 20px;
+@media (max-width: 1440px) {
+  .contest .contest__title {
+    width: 580px;
+    height: 266px;
+  }
+}
+@media (max-width: 1100px) {
+  .contest .contest__title {
+    width: 100%;
+  }
+  .contest .contest__title img {
+    transform: translateX(0px);
+  }
 }
 .contest .contest__title__wrapper {
   position: relative;
@@ -599,7 +606,7 @@ body {
 
 .contest__about {
   margin-bottom: 83px;
-  padding-top: 150px;
+  padding-top: 25px;
   display: flex;
 }
 .contest__about .about__block {
@@ -1164,24 +1171,29 @@ body {
   z-index: 3;
   top: -80px;
   right: 10px;
-  color: #fff;
-  font-family: TT Marxiana;
-  font-size: 71px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 100%;
-  letter-spacing: 0.131px;
-  text-transform: uppercase;
-  transform: scale(0) skewY(-12deg);
-  padding: 14px 35px;
-  border-radius: 20px;
+  width: 222px;
+  height: 145px;
+  transform: scale(0);
   transition: transform 0.8s ease-in-out 0.5s;
-  background: linear-gradient(180deg, #e42313 40.4%, #fc5e51 115.09%);
   filter: drop-shadow(0px 12.1344976425px 29.4694957733px rgba(0, 0, 0, 0.15));
+}
+.image-title img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+@media (max-width: 1440px) {
+  .image-title {
+    width: 155px;
+    height: 100px;
+  }
 }
 
 .poll-app__questions-image.aos-animate .image-title {
-  transform: scale(1) skewY(-12deg);
+  transform: scale(1);
 }
 
 .poll-app__questions-image {
@@ -1263,19 +1275,32 @@ body {
   z-index: 3;
   top: 50%;
   right: 0px;
-  color: #fff;
-  font-family: TT Marxiana;
-  font-size: 71px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 100%;
-  letter-spacing: 0.131px;
-  text-transform: uppercase;
-  transform: skewY(-12deg) translateY(-50%);
-  padding: 14px 25px;
-  border-radius: 20px;
-  background: linear-gradient(180deg, #e42313 40.4%, #fc5e51 115.09%);
+  width: 282px;
+  height: 161px;
+  transform: translateY(-50%);
   filter: drop-shadow(0px 12.1344976425px 29.4694957733px rgba(0, 0, 0, 0.15));
+}
+@media (max-width: 1440px) {
+  .test-result__title-wrapper .absolute-title {
+    margin-left: 20px;
+    transform: translate(-30%, -50%);
+    width: 197px;
+    height: 112px;
+  }
+}
+@media (max-width: 900px) {
+  .test-result__title-wrapper .absolute-title {
+    position: static;
+    transform: none;
+  }
+}
+@media (max-width: 768px) {
+  .test-result__title-wrapper .absolute-title {
+    margin-left: auto;
+    width: 120px;
+    height: 70px;
+    transform: translateY(-30%);
+  }
 }
 
 .footer__socials {
@@ -1368,18 +1393,11 @@ body {
   .header__content {
     padding-left: 40px;
   }
-  .header__title {
-    font-size: 70px;
-    margin-bottom: 75px;
-  }
   .header {
     padding-bottom: 60px;
   }
   .header__image {
     border-radius: 0px 0px 0px 213px;
-  }
-  .contest .contest__title {
-    transform: skewY(-12deg);
   }
   .new-taste-image {
     transform: scale(0.9);
@@ -1388,9 +1406,6 @@ body {
     width: 210px;
     height: 270px;
     right: 0;
-  }
-  .contest .contest__title {
-    font-size: 52px;
   }
   .contest .title-segment._small {
     font-size: 35px;
@@ -1516,7 +1531,6 @@ body {
   }
   .image-title {
     top: -45px;
-    font-size: 45px;
   }
   .poll-app__questions-image {
     top: 50px;
@@ -1538,16 +1552,6 @@ body {
   .test-result__title {
     font-size: 22px;
   }
-  .test-result__title-wrapper .absolute-title {
-    font-size: 32px;
-    border-radius: 15px;
-    transform: translate(130%, -50%) skewY(-12deg);
-  }
-  .test-result__title-wrapper,
-  .poll-section__title {
-    width: -moz-fit-content;
-    width: fit-content;
-  }
   .test-result__subtitle {
     font-size: 28px;
     margin-bottom: 10px;
@@ -1565,9 +1569,6 @@ body {
   }
   .contest {
     padding-top: 100px;
-  }
-  .contest__about {
-    padding-top: 90px;
   }
   .contest__paralax {
     top: 10px;
@@ -1653,11 +1654,7 @@ body {
     margin: 40px 0;
   }
   .image-title {
-    font-size: 50px;
     top: 60px;
-  }
-  .test-result__title-wrapper .absolute-title {
-    font-size: 50px;
   }
   .poll-section__title {
     font-size: 48px;
@@ -1731,9 +1728,6 @@ body {
   .contest__about .about__block:first-child {
     margin-right: 20px;
   }
-  .header__title {
-    font-size: 54px;
-  }
   .header__descr.large {
     font-size: 37px;
   }
@@ -1751,14 +1745,6 @@ body {
   .header__content {
     padding-left: 20px;
   }
-  .test-result__title-wrapper .absolute-title {
-    position: static;
-    width: -moz-fit-content;
-    width: fit-content;
-    transform: none;
-    font-size: 36px;
-    margin-left: 20px;
-  }
   .test-result__title-wrapper {
     display: flex;
     align-items: flex-start;
@@ -1766,11 +1752,6 @@ body {
   }
   .test-result__title-wrapper .poll-section__title {
     margin-bottom: 10px;
-  }
-  .header__title .red-selection::before {
-    height: calc(100% + 10px);
-    border-radius: 10px;
-    width: calc(100% + 25px);
   }
 }
 @media (max-width: 800px) {
@@ -1803,6 +1784,12 @@ body {
   }
 }
 @media (max-width: 768px) {
+  .contest__title {
+    height: 42vw !important;
+  }
+  .header__title img {
+    transform: none;
+  }
   .form-modal__content {
     padding: 30px;
   }
@@ -1817,25 +1804,19 @@ body {
     margin-right: 0;
     margin-bottom: 40px;
   }
-  .contest .contest__title {
-    font-size: 45px;
-  }
   .contest .title-segment._small {
     font-size: 28px;
     margin-top: 10px;
   }
   .contest .red-selection {
     padding: 0;
-    margin-left: 10px;
+    margin-left: 5px;
   }
   .contest .red-selection::before {
     border-radius: 15px;
   }
   .contest {
     padding-top: 75px;
-  }
-  .contest__about {
-    padding-top: 100px;
   }
   .contest__about .about__title {
     font-size: 28px;
@@ -1883,7 +1864,7 @@ body {
     font-size: 24px;
   }
   .block__descr {
-    font-size: 18px;
+    font-size: 16px;
   }
   .poll-section__paralax .new-taste-image__paralax[data-paralax-item="1"] {
     width: 105px;
@@ -1914,15 +1895,6 @@ body {
   }
   .test-result__block {
     flex: 0 0 100%;
-  }
-  .test-result__title-wrapper {
-    flex-direction: column;
-  }
-  .test-result__title-wrapper .absolute-title {
-    margin-left: 0;
-    font-size: 24px;
-    padding: 5px 10px;
-    border-radius: 10px;
   }
   .second-screen__block[data-block="1"] .block__title span,
   .second-screen__block[data-block="2"] .block__title span,
@@ -1959,13 +1931,6 @@ body {
     -o-object-position: bottom left;
        object-position: bottom left;
   }
-  .header__title .red-selection::before {
-    top: 50%;
-    transform: translate(-50%, -50%);
-    height: calc(100% + 7px);
-    border-radius: 10px;
-    width: calc(100% + 15px);
-  }
 }
 @media (max-width: 580px) {
   .form-modal__content .form-modal__title {
@@ -1980,19 +1945,13 @@ body {
     top: 20px;
   }
   .contest {
-    padding-top: 60px;
-  }
-  .contest .contest__title {
-    font-size: 32px;
+    padding-top: 40px;
   }
   .contest .title-segment._small {
     font-size: 19px;
   }
-  .contest__about {
-    padding-top: 70px;
-  }
   .contest__about .about__title {
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 10px;
   }
   .contest__about p {
@@ -2059,6 +2018,8 @@ body {
   }
   .new-taste-image {
     transform: scale(1);
+    width: 70vw;
+    height: 70vw;
   }
   .block__title {
     font-size: 20px;
@@ -2093,10 +2054,6 @@ body {
   }
   .privacy-block .privacy-block__text {
     padding-left: 30px;
-  }
-  .header__title {
-    font-size: 38px;
-    margin-bottom: 30px;
   }
   .header__logo {
     margin-bottom: 10px;

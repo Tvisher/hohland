@@ -1931,8 +1931,22 @@ body {
     -o-object-position: bottom left;
        object-position: bottom left;
   }
+  header {
+    background-color: #164194 !important;
+    background-image: url(../img/mobile-header-image.png);
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    min-height: 180vw;
+  }
+  .header__title {
+    margin-bottom: 0;
+  }
 }
 @media (max-width: 580px) {
+  header {
+    min-height: 200vw;
+  }
   .form-modal__content .form-modal__title {
     font-size: 32px;
     line-height: 120%;
@@ -1955,10 +1969,13 @@ body {
     margin-bottom: 10px;
   }
   .contest__about p {
-    font-size: 18px;
+    font-size: 14px;
     margin-bottom: 10px;
   }
-  .contest__about span {
+  .contest__about .list-item,
+  .contest__about span,
+  .ingredient-item,
+  .cooking-process__item {
     font-size: 14px;
   }
   .form-section__wrapper .form-section__title {
@@ -1972,8 +1989,13 @@ body {
     flex-direction: column;
   }
   .form-input,
-  .form-textarea {
-    font-size: 18px;
+  .form-textarea,
+  .dz-message_before {
+    font-size: 14px !important;
+  }
+  .privacy-block__text {
+    font-size: 12px !important;
+    padding-top: 4px;
   }
   .contest .red-selection::before {
     border-radius: 10px;
@@ -2008,8 +2030,33 @@ body {
   .contest {
     padding-bottom: 50px;
   }
+  .block__descr {
+    font-size: 14px;
+  }
+  .answer__text {
+    font-size: 14px;
+  }
+  .answer__letter {
+    font-size: 16px;
+  }
+  .privacy-block {
+    margin-bottom: 5px;
+  }
+  .about__block:nth-of-type(1) {
+    display: none;
+  }
 }
 @media (max-width: 460px) {
+  .header__descr.large {
+    font-size: 22px;
+  }
+  .header__descr {
+    font-size: 14px;
+  }
+  header {
+    min-height: 100vh;
+    height: 215vw;
+  }
   .second-screen .second-screen__title br {
     display: none;
   }
@@ -2033,13 +2080,19 @@ body {
     box-shadow: none;
   }
   .answer__letter {
-    margin-right: 10px;
+    margin-right: 6px;
+    font-size: 16px;
   }
   .gradient-btn {
     padding: 10px 25px;
   }
-  .poll-app-btn.gradient-btn {
+  .test-result .gradient-btn,
+  .poll-app-btn.gradient-btn,
+  .form-section__inner form .gradient-btn {
     margin: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
   }
   .form-section__inner form {
     display: flex;
@@ -2047,6 +2100,7 @@ body {
   }
   .form-section__inner form .gradient-btn {
     margin: auto;
+    margin-top: 15px;
   }
   .privacy-block .privacy-block__text::before,
   .privacy-block .privacy-block__text::after {

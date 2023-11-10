@@ -148,6 +148,7 @@ const emailInput = pollForm.querySelector('[name="email"]');
 const phoneInput = pollForm.querySelector('[name="phone"]');
 const messageTextatrea = pollForm.querySelector('[name="message"]');
 const privacyInput = pollForm.querySelector('[name="privacy"]');
+const rulesInput = pollForm.querySelector('[name="rules"]');
 const fieldArr = [
     nameInput,
     surameInput,
@@ -162,6 +163,9 @@ fieldArr.forEach(item => {
 });
 privacyInput.addEventListener('input', e => {
     privacyInput.closest('.field-wrap').classList.remove('has-err');
+})
+rulesInput.addEventListener('input', e => {
+    rulesInput.closest('.field-wrap').classList.remove('has-err');
 })
 pollForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -186,6 +190,9 @@ pollForm.addEventListener('submit', (e) => {
     }
     if (!privacyInput.checked) {
         privacyInput.closest('.field-wrap').classList.add('has-err')
+    }
+    if (!rulesInput.checked) {
+        rulesInput.closest('.field-wrap').classList.add('has-err')
     }
     const hasError = pollForm.querySelectorAll('.has-err').length;
     if (hasError) return;

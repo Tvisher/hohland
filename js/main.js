@@ -41,7 +41,7 @@ toSecondScreenBtn.addEventListener("click", (e) => {
 
 
 Dropzone.autoDiscover = false;
-const maxFiles = 2;
+const maxFiles = 5;
 const myDropzone = new Dropzone(".dropzone", {
     autoProcessQueue: false,
     url: "/",
@@ -60,6 +60,17 @@ const myDropzone = new Dropzone(".dropzone", {
     dictFallbackMessage: "Ваш браузер не поддерживает загрузку файлов drag'n'drop.",
     dictFallbackText: 'Пожалуйста, используйте резервную форму ниже, чтобы загрузить свои файлы, как в старые добрые времена.',
     addedfile: function (file) {
+        if (this.files.length < this.options.maxFiles) {
+            this.element.querySelector('.dz-message_after').style.display = 'flex';
+        }
+        if (this.files.length === this.options.maxFiles) {
+            this.element.querySelector('.dz-message_after').style.display = 'none';
+        }
+        if (this.files.length > this.options.maxFiles) {
+            this.removeFile(file);
+            return
+        }
+
         this.element.closest('.field-wrap').classList.remove('has-err');
         const isAcceptedFiles = this.options.acceptedFiles.split(',').includes(file.type);
 
@@ -117,8 +128,15 @@ const myDropzone = new Dropzone(".dropzone", {
             }
         }
 
+
     },
     removedfile: function (file) {
+        if (this.files.length < this.options.maxFiles) {
+            this.element.querySelector('.dz-message_after').style.display = 'flex';
+        }
+        if (this.files.length == 0) {
+            this.element.querySelector('.dz-message_after').style.display = 'none';
+        }
         if (file.previewElement != null && file.previewElement.parentNode != null) {
             file.previewElement.parentNode.removeChild(file.previewElement);
         }
